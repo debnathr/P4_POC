@@ -198,40 +198,36 @@ control MyIngress(inout headers hdr,
 **************** Ingress Port match, apply table*************************
 ************************************************************************/
 
+    
     apply {
         if (hdr.ipv4.isValid()) {
             if (standard_metadata.ingress_port == 1) {
                 p1_ingress_port_mapping.apply();
-                } else {
-                    if (standard_metadata.ingress_port == 2) {
-                        p1_ingress_port_mapping.apply();
-                    } 
-                } else {
-                    if (standard_metadata.ingress_port == 3) {
-                        p1_ingress_port_mapping.apply();
-                    } 
-                } else {
-                    if (standard_metadata.ingress_port == 4) {
-                        p2_ingress_port_mapping.apply();
-                    } 
-                } else {
-                    if (standard_metadata.ingress_port == 5) {
-                        p2_ingress_port_mapping.apply();
-                    } 
-                } else {
-                    if (standard_metadata.ingress_port == 6) {
-                        p3_ingress_port_mapping.apply();
-                    } 
-                } else {
-                    if (standard_metadata.ingress_port == 7) {
-                        p3_ingress_port_mapping.apply();
-                    } 
-                } else {
-                    if (standard_metadata.ingress_port == 8) {
-                        p3_ingress_port_mapping.apply();
-                    } 
-                } 
+            } 
+            else if (standard_metadata.ingress_port == 2) {
+                p1_ingress_port_mapping.apply();
             }
+            else if (standard_metadata.ingress_port == 2) {
+                p1_ingress_port_mapping.apply();
+            } 
+            else if (standard_metadata.ingress_port == 3) {
+                p1_ingress_port_mapping.apply();
+            } 
+            else if (standard_metadata.ingress_port == 4) {
+                p2_ingress_port_mapping.apply();
+            } 
+            else if (standard_metadata.ingress_port == 5) {
+                p2_ingress_port_mapping.apply();
+            } 
+            else if (standard_metadata.ingress_port == 6) {
+                p3_ingress_port_mapping.apply();
+            } 
+            else if (standard_metadata.ingress_port == 7) {
+                p3_ingress_port_mapping.apply();
+            } 
+            else if (standard_metadata.ingress_port == 8) {
+                p3_ingress_port_mapping.apply();
+            } 
         } 
     }
 
