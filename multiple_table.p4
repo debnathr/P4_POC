@@ -121,11 +121,8 @@ control MyIngress(inout headers hdr,
 
     /*-----------------Action Definitions-----------------------------*/
     
-    action ipv4_forward(macAddr_t dstAddr, egressSpec_t port) {
+    action ipv4_forward(egressSpec_t port) {
         standard_metadata.egress_spec = port;
-        hdr.ethernet.srcAddr = hdr.ethernet.dstAddr;
-        hdr.ethernet.dstAddr = dstAddr;
-        hdr.ipv4.ttl = hdr.ipv4.ttl - 1;
     }
 
     action drop() {
@@ -142,8 +139,7 @@ control MyIngress(inout headers hdr,
     
     table p1_ingress_port_mapping {
         key = {
-            /*standard_metadata.ingress_port: exact;*/
-            hdr.ethernet.dstAddr: lpm;
+            hdr.ipv4.dstAddr: exact;
         }
 
         actions = {
@@ -153,14 +149,14 @@ control MyIngress(inout headers hdr,
         }
 
         //PORTMAP_TABLE_SIZE (may need to change the size)
-        size = 64; // One rule per port;
+        size = 1024; // One rule per port;
 
         default_action = drop();
     }
 
     table p2_ingress_port_mapping {
         key = {
-            hdr.ethernet.dstAddr: lpm;
+            hdr.ipv4.dstAddr: exact;
         }
 
         actions = {
@@ -177,7 +173,7 @@ control MyIngress(inout headers hdr,
 
     table p3_ingress_port_mapping {
         key = {
-            hdr.ethernet.dstAddr: lpm;
+            hdr.ipv4.dstAddr: exact;
         }
 
         actions = {
@@ -198,7 +194,6 @@ control MyIngress(inout headers hdr,
 **************** Ingress Port match, apply table*************************
 ************************************************************************/
 
-    
     apply {
         if (hdr.ipv4.isValid()) {
             if (standard_metadata.ingress_port == 1) {
@@ -207,9 +202,6 @@ control MyIngress(inout headers hdr,
             else if (standard_metadata.ingress_port == 2) {
                 p1_ingress_port_mapping.apply();
             }
-            else if (standard_metadata.ingress_port == 2) {
-                p1_ingress_port_mapping.apply();
-            } 
             else if (standard_metadata.ingress_port == 3) {
                 p1_ingress_port_mapping.apply();
             } 
@@ -230,7 +222,7 @@ control MyIngress(inout headers hdr,
             } 
         } 
     }
-
+        
 }
 
 // egress_spec - the port to which the packet should be sent to
@@ -257,7 +249,7 @@ control MyComputeChecksum(inout headers hdr, inout metadata meta) {
     update_checksum(
         hdr.ipv4.isValid(),
             { hdr.ipv4.version,
-          hdr.ipv4.ihl,
+              hdr.ipv4.ihl,
               hdr.ipv4.diffserv,
               hdr.ipv4.totalLen,
               hdr.ipv4.identification,
