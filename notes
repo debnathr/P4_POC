@@ -1,0 +1,330 @@
+//to generate the json file from the p4 code using p4c
+
+//note that p4c-bmv2 only compiles P4_14 programs, whereas p4c can compile both P4_14 and P4_16 programs
+
+p4c -b bmv2-v1model p4-detem-impl/detem.p4 -o detem.json
+
+// to run the simple_switch and load the generated json to test 
+
+sudo simple_switch detem.json/detem.json 
+
+// to load the simple_switch with the json and assigning the veth pair 
+
+sudo simple_switch -i 1@veth1 -i 2@veth3 detem.json/detem.json 
+
+
+//open a new terminal and run the CLI
+
+simple_switch_CLI --thrift-port 9090
+
+
+// create veth pair from the behavioral model 
+
+cd /Desktop/behavioral-model/tools$ sudo ./veth_setup.sh 
+
+creates veth pair from veth 0 to veth 17
+
+// to get the name of the existing veth pair
+
+ifconfig | grep "^veth" | cut -d' ' -f1
+
+
+// to get rid of the veth pairs
+
+sudo ifconfig vethXXXXX down
+
+sudo ip link delete vethxxxx
+
+// to get rid of all the veth pair in one go
+
+for veth in $(ifconfig | grep "^veth" | cut -d' ' -f1); do ifconfig $veth down; done
+
+
+//To create veth interfaces:
+
+sudo $BMV2/tools/veth_setup.sh
+
+// Verify that it created many veth<number> interfaces
+ip link show | grep veth
+
+
+
+// to add veth pair in the system
+
+sudo ip link add name v1.3.1 type veth peer name v1.3.0
+
+
+sudo ip link add name v1.1.0 type veth peer name v1.1.1
+
+
+sudo ip link add name v2.1.1 type veth peer name v2.1.0
+
+
+sudo ip link add name v1.2.1 type veth peer name v1.2.0
+
+
+sudo ip link add name v3.1.1 type veth peer name v3.1.0
+
+
+sudo ip link add name v3.3.1 type veth peer name v3.3.0
+
+
+sudo ip link add name v3.2.1 type veth peer name v3.2.0
+
+
+sudo ip link add name v2.2.1 type veth peer name v2.2.0
+
+// to up the link
+
+sudo ip link set dev v1.3.1 up
+sudo ip link set dev v1.3.0 up
+
+
+sudo ip link set dev v1.1.0 up
+sudo ip link set dev v1.1.1 up
+
+
+sudo ip link set dev v2.1.1 up
+sudo ip link set dev v2.1.0 up
+
+
+sudo ip link set dev v1.2.1 up
+sudo ip link set dev v1.2.0 up
+
+
+sudo ip link set dev v3.1.1 up
+sudo ip link set dev v3.1.0 up
+
+
+sudo ip link set dev v3.3.1 up
+sudo ip link set dev v3.3.0 up
+
+
+sudo ip link set dev v3.2.1 up
+sudo ip link set dev v3.2.0 up
+
+
+sudo ip link set dev v2.2.1 up
+sudo ip link set dev v2.2.0 up
+
+// set the MTU of the links
+
+sudo ip link set v1.3.1 mtu 9500
+sudo ip link set v1.3.0 mtu 9500
+
+
+sudo ip link set v1.1.0 mtu 9500
+sudo ip link set v1.1.1 mtu 9500
+
+
+sudo ip link set v2.1.0 mtu 9500
+sudo ip link set v2.1.1 mtu 9500
+
+
+sudo ip link set v1.2.0 mtu 9500
+sudo ip link set v1.2.1 mtu 9500
+
+
+sudo ip link set v3.1.1 mtu 9500
+sudo ip link set v3.1.0 mtu 9500
+
+
+sudo ip link set v3.3.1 mtu 9500
+sudo ip link set v3.3.0 mtu 9500
+
+
+sudo ip link set v3.2.1 mtu 9500
+sudo ip link set v3.2.0 mtu 9500
+
+
+sudo ip link set v2.2.1 mtu 9500
+sudo ip link set v2.2.0 mtu 9500
+
+// adding ports in bmv2
+
+sudo simple_switch -i 1@h1.1 -i 2@v1.3.0 detem.json/detem.json 
+
+
+// to add bridge
+
+// To create a bridge named br0, that have eth0 and eth1 as members:
+
+ip link add name br0 type bridge
+ip link set dev br0 up
+ip link set dev eth0 master br0
+ip link set dev eth1 master br0
+
+//To remove an interface from the bridge:
+
+ip link set dev eth0 nomaster
+
+ip link set eth0 nomaster
+
+ip link set eth0 down
+
+# ip link delete bridge_name type bridge
+
+//And finally, to destroy a bridge after no interface is member:
+
+ip link del br0
+
+// to check all the bridges 
+ brctl show
+
+// check the ip addrss of the bridge
+ip addr show bridge1
+
+// to check the specific bridge
+bridge link show dev v1.3.1
+
+// Troubleshoot
+
+// if you want to run the simple_switch without root privileges
+
+sudo rm -rf ipc:///tmp/bmv2-0-notifications.ipc
+
+
+
+// shell script to create the  topology of the network, interconnect two host h1.1, h2.1 (e.g. Docker container)
+
+
+
+// creating a new docker image
+// for host 1
+// pulled the latest ubuntu version for docker image
+docker pull ubuntu:18:10
+
+// to run the container
+// 6f73120de66c is the ID of the ubuntu 18.10 for host1
+
+sudo docker run --name host1-template -it --rm --privileged --pid='host' -v /var/run/docker.sock:/var/run/docker.sock 213de1687859 /bin/bash
+
+container ID: e272b875f0da
+
+BY defualt the docker runs in bridge 
+docker run --network="bridge" 
+
+root@78bd55392fc7:/# 
+
+// for host 2
+// image of ubuntu 18.04
+
+// --privileged : grants additional permissions to the container, it allows the container to gain access to the devices of the host (/dev)
+
+//--pid=host : allows the containers to use the processus tree of the Docker host (the VM in which the Docker daemon is running)
+
+//PID namespace provides separation of processes. The PID Namespace removes the view of the system processes, and allows process ids to be reused including pid 1.
+
+//bridge (default)	Connect the container to the bridge via veth interfaces.
+//host			Use the host's network stack inside the container.
+
+sudo docker pull ubuntu:18.04
+sudo docker image ls
+
+sudo docker run --name host2-template -it --rm --privileged --pid='host' -v /var/run/docker.sock:/var/run/docker.sock e774ba6c7e6b /bin/bash
+
+container ID: be64c34c5eea
+
+root@b8a0c829f3d7:/# 
+
+//BY defualt the docker runs in bridge 
+//Docker creates a bridge named docker0 by default. Both the docker host and the docker containers have an IP address on that bridge.
+docker run --network="bridge" 
+
+//Alternatively the docker can be run in host
+//Such a container will share the network stack with the docker host and from the container point of view, localhost (or 127.0.0.1) will refer to the docker host.
+docker run --network="host"
+
+// to check the names of the docker hosts
+
+sudo docker ps --format '{{.Names}}'
+
+// this will give the image id of the docker hosts
+
+sudo docker ps --format ‘{{.Image}}’
+
+//container reachable over ports “h1.1” and “h2.1” of the Host machine
+
+docker run -p 8080:8080 -td test02
+
+
+// to create container with fixed MAC address
+sudo docker run --name ubuntu18.10 -it --rm --privileged --mac-address 00:14:22:01:23:45 --pid='host' -v /var/run/docker.sock:/var/run/docker.sock 213de1687859 /bin/bash
+
+// or change the mac address inside the container
+ifconfig eth1 hw ether 00:14:22:01:23:45
+
+ifconfig eth0 hw ether 00:12:11:21:76:55
+
+
+// single command to run the interfaces in bmv2 switch
+
+sudo simple_switch -i 1@v1.1.1 -i 2@v1.2.1 -i 3@v1.3.1 -i 4@v2.1.1 -i 5@v2.2.1 -i 6@v3.1.1 -i 7@v3.2.1 -i 8@v3.3.1 detem.json/detem.json 
+
+
+// set the ip address of the interfaces
+ip addr add 10.0.0.2/24 dev v1.3.1
+ip addr add 10.0.0.3/24 dev v3.3.1
+
+// to ping the interfaces
+ping -I 10.0.0.2 10.0.0.3
+
+ping -I 10.35.26.1 10.35.26.2
+
+
+// adding rules in bmv2 switch cli for p1 table
+
+table_add MyIngress.p1_ingress_port_mapping ipv4_forward 10.0.0.2  => 3
+
+table_add MyIngress.p1_ingress_port_mapping ipv4_forward 10.0.0.3  => 1
+
+
+// adding rules in bmv2 switch cli for p2 table
+
+table_add MyIngress.p2_ingress_port_mapping ipv4_forward 10.0.0.3  => 5
+
+
+// adding rules in bmv2 switch cli for p3 table
+
+table_add MyIngress.p3_ingress_port_mapping ipv4_forward 10.0.0.2  => 6
+
+table_add MyIngress.p3_ingress_port_mapping ipv4_forward 10.0.0.3  => 8
+
+
+// to check the table entries of any table in bmv2 cli
+
+table_dump MyIngress.p1_ingress_port_mapping
+
+
+
+// to print logs of the bmv2 switch cli
+
+//set the port of the bmv2 interface
+
+sudo simple_switch -i 1@v1.1.1 -i 2@v1.2.1 -i 3@v1.3.1 -i 4@v2.1.1 -i 5@v2.2.1 -i 6@v3.1.1 -i 7@v3.2.1 -i 8@v3.3.1 --nanolog ipc:///tmp/bm-log.ipc detem.json/detem.json 
+
+//open the cli in for debug
+
+/Desktop/code_setup/behavioral-model/tools$ sudo ./nanomsg_client.py --thrift-port 9090
+
+// to attach the switch in the debugger mode
+sudo ./p4dbg.py --thrift-port 9090
+
+The debugger is not enabled on the switch //looks like the debugger is not enabled
+
+
+// important url for the bmv2 switch cli commands
+
+https://github.com/p4lang/behavioral-model/blob/master/docs/runtime_CLI.md
+
+
+table_add MyIngress.p1_ingress_port_mapping ipv4_forward 10.0.0.3  => 1
+
+
+//open simple_switch to print the debug message 
+
+sudo simple_switch -i 3@v1.3.1 -i 8@v3.3.1 detem.json/detem.json --log-file sslog --log-flush
+
+
+
+

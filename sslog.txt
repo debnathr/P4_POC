@@ -1,0 +1,1638 @@
+[12:16:28.124] [bmv2] [D] [thread 6499] Set default default entry for table 'MyIngress.p1_ingress_port_mapping': MyIngress.drop - 
+[12:16:28.124] [bmv2] [D] [thread 6499] Set default default entry for table 'MyIngress.p2_ingress_port_mapping': MyIngress.drop - 
+[12:16:28.124] [bmv2] [D] [thread 6499] Set default default entry for table 'MyIngress.p3_ingress_port_mapping': MyIngress.drop - 
+[12:16:28.127] [bmv2] [D] [thread 6499] Adding interface v1.3.1 as port 3
+[12:16:28.153] [bmv2] [D] [thread 6499] Adding interface v3.3.1 as port 8
+[12:16:28.171] [bmv2] [I] [thread 6499] Starting Thrift server on port 9090
+[12:16:28.172] [bmv2] [I] [thread 6499] Thrift server was started
+[12:16:32.057] [bmv2] [T] [thread 6518] bm_get_config
+[12:16:43.312] [bmv2] [T] [thread 6518] bm_mt_get_entries
+[12:16:43.313] [bmv2] [T] [thread 6518] bm_mt_get_default_entry
+[12:16:51.992] [bmv2] [T] [thread 6518] bm_table_add_entry
+[12:16:51.992] [bmv2] [D] [thread 6518] Entry 0 added to table 'MyIngress.p3_ingress_port_mapping'
+[12:16:51.992] [bmv2] [D] [thread 6518] Dumping entry 0
+Match key:
+* hdr.ipv4.dstAddr    : EXACT     0a000003
+Action entry: MyIngress.ipv4_forward - 8,
+
+[12:17:01.063] [bmv2] [T] [thread 6518] bm_mt_get_entries
+[12:17:01.064] [bmv2] [T] [thread 6518] bm_mt_get_default_entry
+[12:17:05.631] [bmv2] [D] [thread 6507] [0.0] [cxt 0] Processing packet received on port 3
+[12:17:05.632] [bmv2] [D] [thread 6507] [0.0] [cxt 0] Parser 'parser': start
+[12:17:05.632] [bmv2] [D] [thread 6507] [0.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:17:05.632] [bmv2] [D] [thread 6507] [0.0] [cxt 0] Extracting header 'ethernet'
+[12:17:05.632] [bmv2] [D] [thread 6507] [0.0] [cxt 0] Parser state 'start': key is 0800
+[12:17:05.632] [bmv2] [T] [thread 6507] [0.0] [cxt 0] Bytes parsed: 14
+[12:17:05.632] [bmv2] [D] [thread 6507] [0.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:17:05.632] [bmv2] [D] [thread 6507] [0.0] [cxt 0] Extracting header 'ipv4'
+[12:17:05.632] [bmv2] [D] [thread 6507] [0.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:17:05.632] [bmv2] [T] [thread 6507] [0.0] [cxt 0] Bytes parsed: 34
+[12:17:05.632] [bmv2] [D] [thread 6507] [0.0] [cxt 0] Parser 'parser': end
+[12:17:05.632] [bmv2] [D] [thread 6507] [0.0] [cxt 0] Pipeline 'ingress': start
+[12:17:05.632] [bmv2] [T] [thread 6507] [0.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:17:05.632] [bmv2] [T] [thread 6507] [0.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:17:05.632] [bmv2] [T] [thread 6507] [0.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:17:05.632] [bmv2] [T] [thread 6507] [0.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:17:05.632] [bmv2] [T] [thread 6507] [0.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:17:05.632] [bmv2] [D] [thread 6507] [0.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:17:05.632] [bmv2] [D] [thread 6507] [0.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:17:05.632] [bmv2] [D] [thread 6507] [0.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:17:05.632] [bmv2] [T] [thread 6507] [0.0] [cxt 0] Action MyIngress.drop
+[12:17:05.632] [bmv2] [T] [thread 6507] [0.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:17:05.632] [bmv2] [D] [thread 6507] [0.0] [cxt 0] Pipeline 'ingress': end
+[12:17:05.632] [bmv2] [D] [thread 6507] [0.0] [cxt 0] Egress port is 511
+[12:17:05.632] [bmv2] [D] [thread 6507] [0.0] [cxt 0] Dropping packet at the end of ingress
+[12:17:05.632] [bmv2] [D] [thread 6507] [1.0] [cxt 0] Processing packet received on port 8
+[12:17:05.632] [bmv2] [D] [thread 6507] [1.0] [cxt 0] Parser 'parser': start
+[12:17:05.632] [bmv2] [D] [thread 6507] [1.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:17:05.632] [bmv2] [D] [thread 6507] [1.0] [cxt 0] Extracting header 'ethernet'
+[12:17:05.633] [bmv2] [D] [thread 6507] [1.0] [cxt 0] Parser state 'start': key is 0800
+[12:17:05.633] [bmv2] [T] [thread 6507] [1.0] [cxt 0] Bytes parsed: 14
+[12:17:05.633] [bmv2] [D] [thread 6507] [1.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:17:05.633] [bmv2] [D] [thread 6507] [1.0] [cxt 0] Extracting header 'ipv4'
+[12:17:05.633] [bmv2] [D] [thread 6507] [1.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:17:05.633] [bmv2] [T] [thread 6507] [1.0] [cxt 0] Bytes parsed: 34
+[12:17:05.633] [bmv2] [D] [thread 6507] [1.0] [cxt 0] Parser 'parser': end
+[12:17:05.633] [bmv2] [D] [thread 6507] [1.0] [cxt 0] Pipeline 'ingress': start
+[12:17:05.633] [bmv2] [T] [thread 6507] [1.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:17:05.633] [bmv2] [T] [thread 6507] [1.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:17:05.633] [bmv2] [T] [thread 6507] [1.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:17:05.633] [bmv2] [T] [thread 6507] [1.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:17:05.633] [bmv2] [T] [thread 6507] [1.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:17:05.633] [bmv2] [T] [thread 6507] [1.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:17:05.633] [bmv2] [T] [thread 6507] [1.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:17:05.633] [bmv2] [T] [thread 6507] [1.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:17:05.633] [bmv2] [T] [thread 6507] [1.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:17:05.633] [bmv2] [T] [thread 6507] [1.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:17:05.633] [bmv2] [D] [thread 6507] [1.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:17:05.633] [bmv2] [D] [thread 6507] [1.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:17:05.633] [bmv2] [D] [thread 6507] [1.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:17:05.633] [bmv2] [T] [thread 6507] [1.0] [cxt 0] Action MyIngress.drop
+[12:17:05.633] [bmv2] [T] [thread 6507] [1.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:17:05.633] [bmv2] [D] [thread 6507] [1.0] [cxt 0] Pipeline 'ingress': end
+[12:17:05.633] [bmv2] [D] [thread 6507] [1.0] [cxt 0] Egress port is 511
+[12:17:05.633] [bmv2] [D] [thread 6507] [1.0] [cxt 0] Dropping packet at the end of ingress
+[12:17:06.632] [bmv2] [D] [thread 6507] [2.0] [cxt 0] Processing packet received on port 3
+[12:17:06.632] [bmv2] [D] [thread 6507] [2.0] [cxt 0] Parser 'parser': start
+[12:17:06.632] [bmv2] [D] [thread 6507] [2.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:17:06.632] [bmv2] [D] [thread 6507] [2.0] [cxt 0] Extracting header 'ethernet'
+[12:17:06.632] [bmv2] [D] [thread 6507] [2.0] [cxt 0] Parser state 'start': key is 0800
+[12:17:06.632] [bmv2] [T] [thread 6507] [2.0] [cxt 0] Bytes parsed: 14
+[12:17:06.632] [bmv2] [D] [thread 6507] [2.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:17:06.632] [bmv2] [D] [thread 6507] [2.0] [cxt 0] Extracting header 'ipv4'
+[12:17:06.632] [bmv2] [D] [thread 6507] [2.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:17:06.632] [bmv2] [T] [thread 6507] [2.0] [cxt 0] Bytes parsed: 34
+[12:17:06.632] [bmv2] [D] [thread 6507] [2.0] [cxt 0] Parser 'parser': end
+[12:17:06.632] [bmv2] [D] [thread 6507] [2.0] [cxt 0] Pipeline 'ingress': start
+[12:17:06.632] [bmv2] [T] [thread 6507] [2.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:17:06.632] [bmv2] [T] [thread 6507] [2.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:17:06.632] [bmv2] [T] [thread 6507] [2.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:17:06.632] [bmv2] [T] [thread 6507] [2.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:17:06.633] [bmv2] [T] [thread 6507] [2.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:17:06.633] [bmv2] [D] [thread 6507] [2.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:17:06.633] [bmv2] [D] [thread 6507] [2.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:17:06.633] [bmv2] [D] [thread 6507] [2.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:17:06.633] [bmv2] [T] [thread 6507] [2.0] [cxt 0] Action MyIngress.drop
+[12:17:06.633] [bmv2] [T] [thread 6507] [2.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:17:06.633] [bmv2] [D] [thread 6507] [2.0] [cxt 0] Pipeline 'ingress': end
+[12:17:06.633] [bmv2] [D] [thread 6507] [2.0] [cxt 0] Egress port is 511
+[12:17:06.633] [bmv2] [D] [thread 6507] [2.0] [cxt 0] Dropping packet at the end of ingress
+[12:17:06.633] [bmv2] [D] [thread 6507] [3.0] [cxt 0] Processing packet received on port 8
+[12:17:06.633] [bmv2] [D] [thread 6507] [3.0] [cxt 0] Parser 'parser': start
+[12:17:06.633] [bmv2] [D] [thread 6507] [3.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:17:06.633] [bmv2] [D] [thread 6507] [3.0] [cxt 0] Extracting header 'ethernet'
+[12:17:06.633] [bmv2] [D] [thread 6507] [3.0] [cxt 0] Parser state 'start': key is 0800
+[12:17:06.633] [bmv2] [T] [thread 6507] [3.0] [cxt 0] Bytes parsed: 14
+[12:17:06.633] [bmv2] [D] [thread 6507] [3.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:17:06.633] [bmv2] [D] [thread 6507] [3.0] [cxt 0] Extracting header 'ipv4'
+[12:17:06.633] [bmv2] [D] [thread 6507] [3.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:17:06.633] [bmv2] [T] [thread 6507] [3.0] [cxt 0] Bytes parsed: 34
+[12:17:06.633] [bmv2] [D] [thread 6507] [3.0] [cxt 0] Parser 'parser': end
+[12:17:06.633] [bmv2] [D] [thread 6507] [3.0] [cxt 0] Pipeline 'ingress': start
+[12:17:06.633] [bmv2] [T] [thread 6507] [3.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:17:06.633] [bmv2] [T] [thread 6507] [3.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:17:06.633] [bmv2] [T] [thread 6507] [3.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:17:06.633] [bmv2] [T] [thread 6507] [3.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:17:06.633] [bmv2] [T] [thread 6507] [3.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:17:06.633] [bmv2] [T] [thread 6507] [3.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:17:06.633] [bmv2] [T] [thread 6507] [3.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:17:06.633] [bmv2] [T] [thread 6507] [3.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:17:06.634] [bmv2] [T] [thread 6507] [3.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:17:06.634] [bmv2] [T] [thread 6507] [3.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:17:06.634] [bmv2] [D] [thread 6507] [3.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:17:06.634] [bmv2] [D] [thread 6507] [3.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:17:06.634] [bmv2] [D] [thread 6507] [3.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:17:06.634] [bmv2] [T] [thread 6507] [3.0] [cxt 0] Action MyIngress.drop
+[12:17:06.634] [bmv2] [T] [thread 6507] [3.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:17:06.634] [bmv2] [D] [thread 6507] [3.0] [cxt 0] Pipeline 'ingress': end
+[12:17:06.634] [bmv2] [D] [thread 6507] [3.0] [cxt 0] Egress port is 511
+[12:17:06.634] [bmv2] [D] [thread 6507] [3.0] [cxt 0] Dropping packet at the end of ingress
+[12:17:07.632] [bmv2] [D] [thread 6507] [4.0] [cxt 0] Processing packet received on port 3
+[12:17:07.632] [bmv2] [D] [thread 6507] [4.0] [cxt 0] Parser 'parser': start
+[12:17:07.632] [bmv2] [D] [thread 6507] [4.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:17:07.633] [bmv2] [D] [thread 6507] [4.0] [cxt 0] Extracting header 'ethernet'
+[12:17:07.633] [bmv2] [D] [thread 6507] [4.0] [cxt 0] Parser state 'start': key is 0800
+[12:17:07.633] [bmv2] [T] [thread 6507] [4.0] [cxt 0] Bytes parsed: 14
+[12:17:07.633] [bmv2] [D] [thread 6507] [4.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:17:07.633] [bmv2] [D] [thread 6507] [4.0] [cxt 0] Extracting header 'ipv4'
+[12:17:07.633] [bmv2] [D] [thread 6507] [4.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:17:07.633] [bmv2] [T] [thread 6507] [4.0] [cxt 0] Bytes parsed: 34
+[12:17:07.633] [bmv2] [D] [thread 6507] [4.0] [cxt 0] Parser 'parser': end
+[12:17:07.633] [bmv2] [D] [thread 6507] [4.0] [cxt 0] Pipeline 'ingress': start
+[12:17:07.633] [bmv2] [T] [thread 6507] [4.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:17:07.633] [bmv2] [T] [thread 6507] [4.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:17:07.633] [bmv2] [T] [thread 6507] [4.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:17:07.633] [bmv2] [T] [thread 6507] [4.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:17:07.633] [bmv2] [T] [thread 6507] [4.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:17:07.633] [bmv2] [D] [thread 6507] [4.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:17:07.633] [bmv2] [D] [thread 6507] [4.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:17:07.633] [bmv2] [D] [thread 6507] [4.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:17:07.633] [bmv2] [T] [thread 6507] [4.0] [cxt 0] Action MyIngress.drop
+[12:17:07.633] [bmv2] [T] [thread 6507] [4.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:17:07.633] [bmv2] [D] [thread 6507] [4.0] [cxt 0] Pipeline 'ingress': end
+[12:17:07.633] [bmv2] [D] [thread 6507] [4.0] [cxt 0] Egress port is 511
+[12:17:07.633] [bmv2] [D] [thread 6507] [4.0] [cxt 0] Dropping packet at the end of ingress
+[12:17:07.633] [bmv2] [D] [thread 6507] [5.0] [cxt 0] Processing packet received on port 8
+[12:17:07.633] [bmv2] [D] [thread 6507] [5.0] [cxt 0] Parser 'parser': start
+[12:17:07.633] [bmv2] [D] [thread 6507] [5.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:17:07.633] [bmv2] [D] [thread 6507] [5.0] [cxt 0] Extracting header 'ethernet'
+[12:17:07.633] [bmv2] [D] [thread 6507] [5.0] [cxt 0] Parser state 'start': key is 0800
+[12:17:07.633] [bmv2] [T] [thread 6507] [5.0] [cxt 0] Bytes parsed: 14
+[12:17:07.633] [bmv2] [D] [thread 6507] [5.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:17:07.633] [bmv2] [D] [thread 6507] [5.0] [cxt 0] Extracting header 'ipv4'
+[12:17:07.633] [bmv2] [D] [thread 6507] [5.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:17:07.634] [bmv2] [T] [thread 6507] [5.0] [cxt 0] Bytes parsed: 34
+[12:17:07.634] [bmv2] [D] [thread 6507] [5.0] [cxt 0] Parser 'parser': end
+[12:17:07.634] [bmv2] [D] [thread 6507] [5.0] [cxt 0] Pipeline 'ingress': start
+[12:17:07.634] [bmv2] [T] [thread 6507] [5.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:17:07.634] [bmv2] [T] [thread 6507] [5.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:17:07.634] [bmv2] [T] [thread 6507] [5.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:17:07.634] [bmv2] [T] [thread 6507] [5.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:17:07.634] [bmv2] [T] [thread 6507] [5.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:17:07.634] [bmv2] [T] [thread 6507] [5.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:17:07.634] [bmv2] [T] [thread 6507] [5.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:17:07.634] [bmv2] [T] [thread 6507] [5.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:17:07.634] [bmv2] [T] [thread 6507] [5.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:17:07.634] [bmv2] [T] [thread 6507] [5.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:17:07.634] [bmv2] [D] [thread 6507] [5.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:17:07.634] [bmv2] [D] [thread 6507] [5.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:17:07.634] [bmv2] [D] [thread 6507] [5.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:17:07.634] [bmv2] [T] [thread 6507] [5.0] [cxt 0] Action MyIngress.drop
+[12:17:07.634] [bmv2] [T] [thread 6507] [5.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:17:07.634] [bmv2] [D] [thread 6507] [5.0] [cxt 0] Pipeline 'ingress': end
+[12:17:07.634] [bmv2] [D] [thread 6507] [5.0] [cxt 0] Egress port is 511
+[12:17:07.634] [bmv2] [D] [thread 6507] [5.0] [cxt 0] Dropping packet at the end of ingress
+[12:17:08.633] [bmv2] [D] [thread 6507] [6.0] [cxt 0] Processing packet received on port 3
+[12:17:08.634] [bmv2] [D] [thread 6507] [6.0] [cxt 0] Parser 'parser': start
+[12:17:08.634] [bmv2] [D] [thread 6507] [6.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:17:08.634] [bmv2] [D] [thread 6507] [6.0] [cxt 0] Extracting header 'ethernet'
+[12:17:08.634] [bmv2] [D] [thread 6507] [6.0] [cxt 0] Parser state 'start': key is 0800
+[12:17:08.634] [bmv2] [T] [thread 6507] [6.0] [cxt 0] Bytes parsed: 14
+[12:17:08.634] [bmv2] [D] [thread 6507] [6.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:17:08.634] [bmv2] [D] [thread 6507] [6.0] [cxt 0] Extracting header 'ipv4'
+[12:17:08.634] [bmv2] [D] [thread 6507] [6.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:17:08.634] [bmv2] [T] [thread 6507] [6.0] [cxt 0] Bytes parsed: 34
+[12:17:08.634] [bmv2] [D] [thread 6507] [6.0] [cxt 0] Parser 'parser': end
+[12:17:08.634] [bmv2] [D] [thread 6507] [6.0] [cxt 0] Pipeline 'ingress': start
+[12:17:08.634] [bmv2] [T] [thread 6507] [6.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:17:08.634] [bmv2] [T] [thread 6507] [6.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:17:08.634] [bmv2] [T] [thread 6507] [6.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:17:08.634] [bmv2] [T] [thread 6507] [6.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:17:08.634] [bmv2] [T] [thread 6507] [6.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:17:08.634] [bmv2] [D] [thread 6507] [6.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:17:08.634] [bmv2] [D] [thread 6507] [6.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:17:08.634] [bmv2] [D] [thread 6507] [6.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:17:08.634] [bmv2] [T] [thread 6507] [6.0] [cxt 0] Action MyIngress.drop
+[12:17:08.634] [bmv2] [T] [thread 6507] [6.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:17:08.634] [bmv2] [D] [thread 6507] [6.0] [cxt 0] Pipeline 'ingress': end
+[12:17:08.634] [bmv2] [D] [thread 6507] [6.0] [cxt 0] Egress port is 511
+[12:17:08.634] [bmv2] [D] [thread 6507] [6.0] [cxt 0] Dropping packet at the end of ingress
+[12:17:08.635] [bmv2] [D] [thread 6507] [7.0] [cxt 0] Processing packet received on port 8
+[12:17:08.635] [bmv2] [D] [thread 6507] [7.0] [cxt 0] Parser 'parser': start
+[12:17:08.635] [bmv2] [D] [thread 6507] [7.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:17:08.635] [bmv2] [D] [thread 6507] [7.0] [cxt 0] Extracting header 'ethernet'
+[12:17:08.635] [bmv2] [D] [thread 6507] [7.0] [cxt 0] Parser state 'start': key is 0800
+[12:17:08.635] [bmv2] [T] [thread 6507] [7.0] [cxt 0] Bytes parsed: 14
+[12:17:08.635] [bmv2] [D] [thread 6507] [7.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:17:08.635] [bmv2] [D] [thread 6507] [7.0] [cxt 0] Extracting header 'ipv4'
+[12:17:08.635] [bmv2] [D] [thread 6507] [7.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:17:08.635] [bmv2] [T] [thread 6507] [7.0] [cxt 0] Bytes parsed: 34
+[12:17:08.635] [bmv2] [D] [thread 6507] [7.0] [cxt 0] Parser 'parser': end
+[12:17:08.635] [bmv2] [D] [thread 6507] [7.0] [cxt 0] Pipeline 'ingress': start
+[12:17:08.635] [bmv2] [T] [thread 6507] [7.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:17:08.635] [bmv2] [T] [thread 6507] [7.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:17:08.635] [bmv2] [T] [thread 6507] [7.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:17:08.635] [bmv2] [T] [thread 6507] [7.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:17:08.635] [bmv2] [T] [thread 6507] [7.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:17:08.635] [bmv2] [T] [thread 6507] [7.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:17:08.635] [bmv2] [T] [thread 6507] [7.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:17:08.635] [bmv2] [T] [thread 6507] [7.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:17:08.635] [bmv2] [T] [thread 6507] [7.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:17:08.635] [bmv2] [T] [thread 6507] [7.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:17:08.635] [bmv2] [D] [thread 6507] [7.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:17:08.635] [bmv2] [D] [thread 6507] [7.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:17:08.635] [bmv2] [D] [thread 6507] [7.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:17:08.635] [bmv2] [T] [thread 6507] [7.0] [cxt 0] Action MyIngress.drop
+[12:17:08.635] [bmv2] [T] [thread 6507] [7.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:17:08.635] [bmv2] [D] [thread 6507] [7.0] [cxt 0] Pipeline 'ingress': end
+[12:17:08.635] [bmv2] [D] [thread 6507] [7.0] [cxt 0] Egress port is 511
+[12:17:08.635] [bmv2] [D] [thread 6507] [7.0] [cxt 0] Dropping packet at the end of ingress
+[12:19:05.632] [bmv2] [D] [thread 6507] [8.0] [cxt 0] Processing packet received on port 3
+[12:19:05.632] [bmv2] [D] [thread 6507] [8.0] [cxt 0] Parser 'parser': start
+[12:19:05.632] [bmv2] [D] [thread 6507] [8.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:19:05.632] [bmv2] [D] [thread 6507] [8.0] [cxt 0] Extracting header 'ethernet'
+[12:19:05.632] [bmv2] [D] [thread 6507] [8.0] [cxt 0] Parser state 'start': key is 0800
+[12:19:05.632] [bmv2] [T] [thread 6507] [8.0] [cxt 0] Bytes parsed: 14
+[12:19:05.632] [bmv2] [D] [thread 6507] [8.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:19:05.632] [bmv2] [D] [thread 6507] [8.0] [cxt 0] Extracting header 'ipv4'
+[12:19:05.632] [bmv2] [D] [thread 6507] [8.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:19:05.632] [bmv2] [T] [thread 6507] [8.0] [cxt 0] Bytes parsed: 34
+[12:19:05.632] [bmv2] [D] [thread 6507] [8.0] [cxt 0] Parser 'parser': end
+[12:19:05.632] [bmv2] [D] [thread 6507] [8.0] [cxt 0] Pipeline 'ingress': start
+[12:19:05.632] [bmv2] [T] [thread 6507] [8.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:19:05.633] [bmv2] [T] [thread 6507] [8.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:19:05.633] [bmv2] [T] [thread 6507] [8.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:19:05.633] [bmv2] [T] [thread 6507] [8.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:19:05.633] [bmv2] [T] [thread 6507] [8.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:19:05.633] [bmv2] [D] [thread 6507] [8.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:19:05.633] [bmv2] [D] [thread 6507] [8.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:19:05.633] [bmv2] [D] [thread 6507] [8.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:19:05.633] [bmv2] [T] [thread 6507] [8.0] [cxt 0] Action MyIngress.drop
+[12:19:05.633] [bmv2] [T] [thread 6507] [8.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:19:05.633] [bmv2] [D] [thread 6507] [8.0] [cxt 0] Pipeline 'ingress': end
+[12:19:05.633] [bmv2] [D] [thread 6507] [8.0] [cxt 0] Egress port is 511
+[12:19:05.633] [bmv2] [D] [thread 6507] [8.0] [cxt 0] Dropping packet at the end of ingress
+[12:19:05.633] [bmv2] [D] [thread 6507] [9.0] [cxt 0] Processing packet received on port 8
+[12:19:05.633] [bmv2] [D] [thread 6507] [9.0] [cxt 0] Parser 'parser': start
+[12:19:05.633] [bmv2] [D] [thread 6507] [9.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:19:05.633] [bmv2] [D] [thread 6507] [9.0] [cxt 0] Extracting header 'ethernet'
+[12:19:05.633] [bmv2] [D] [thread 6507] [9.0] [cxt 0] Parser state 'start': key is 0800
+[12:19:05.633] [bmv2] [T] [thread 6507] [9.0] [cxt 0] Bytes parsed: 14
+[12:19:05.633] [bmv2] [D] [thread 6507] [9.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:19:05.633] [bmv2] [D] [thread 6507] [9.0] [cxt 0] Extracting header 'ipv4'
+[12:19:05.633] [bmv2] [D] [thread 6507] [9.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:19:05.633] [bmv2] [T] [thread 6507] [9.0] [cxt 0] Bytes parsed: 34
+[12:19:05.633] [bmv2] [D] [thread 6507] [9.0] [cxt 0] Parser 'parser': end
+[12:19:05.633] [bmv2] [D] [thread 6507] [9.0] [cxt 0] Pipeline 'ingress': start
+[12:19:05.633] [bmv2] [T] [thread 6507] [9.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:19:05.633] [bmv2] [T] [thread 6507] [9.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:19:05.633] [bmv2] [T] [thread 6507] [9.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:19:05.633] [bmv2] [T] [thread 6507] [9.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:19:05.633] [bmv2] [T] [thread 6507] [9.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:19:05.633] [bmv2] [T] [thread 6507] [9.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:19:05.634] [bmv2] [T] [thread 6507] [9.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:19:05.634] [bmv2] [T] [thread 6507] [9.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:19:05.634] [bmv2] [T] [thread 6507] [9.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:19:05.634] [bmv2] [T] [thread 6507] [9.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:19:05.634] [bmv2] [D] [thread 6507] [9.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:19:05.634] [bmv2] [D] [thread 6507] [9.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:19:05.634] [bmv2] [D] [thread 6507] [9.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:19:05.634] [bmv2] [T] [thread 6507] [9.0] [cxt 0] Action MyIngress.drop
+[12:19:05.634] [bmv2] [T] [thread 6507] [9.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:19:05.634] [bmv2] [D] [thread 6507] [9.0] [cxt 0] Pipeline 'ingress': end
+[12:19:05.634] [bmv2] [D] [thread 6507] [9.0] [cxt 0] Egress port is 511
+[12:19:05.634] [bmv2] [D] [thread 6507] [9.0] [cxt 0] Dropping packet at the end of ingress
+[12:19:06.632] [bmv2] [D] [thread 6507] [10.0] [cxt 0] Processing packet received on port 3
+[12:19:06.632] [bmv2] [D] [thread 6507] [10.0] [cxt 0] Parser 'parser': start
+[12:19:06.632] [bmv2] [D] [thread 6507] [10.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:19:06.632] [bmv2] [D] [thread 6507] [10.0] [cxt 0] Extracting header 'ethernet'
+[12:19:06.632] [bmv2] [D] [thread 6507] [10.0] [cxt 0] Parser state 'start': key is 0800
+[12:19:06.632] [bmv2] [T] [thread 6507] [10.0] [cxt 0] Bytes parsed: 14
+[12:19:06.632] [bmv2] [D] [thread 6507] [10.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:19:06.632] [bmv2] [D] [thread 6507] [10.0] [cxt 0] Extracting header 'ipv4'
+[12:19:06.632] [bmv2] [D] [thread 6507] [10.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:19:06.632] [bmv2] [T] [thread 6507] [10.0] [cxt 0] Bytes parsed: 34
+[12:19:06.632] [bmv2] [D] [thread 6507] [10.0] [cxt 0] Parser 'parser': end
+[12:19:06.632] [bmv2] [D] [thread 6507] [10.0] [cxt 0] Pipeline 'ingress': start
+[12:19:06.632] [bmv2] [T] [thread 6507] [10.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:19:06.632] [bmv2] [T] [thread 6507] [10.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:19:06.632] [bmv2] [T] [thread 6507] [10.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:19:06.632] [bmv2] [T] [thread 6507] [10.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:19:06.632] [bmv2] [T] [thread 6507] [10.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:19:06.632] [bmv2] [D] [thread 6507] [10.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:19:06.632] [bmv2] [D] [thread 6507] [10.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:19:06.632] [bmv2] [D] [thread 6507] [10.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:19:06.632] [bmv2] [T] [thread 6507] [10.0] [cxt 0] Action MyIngress.drop
+[12:19:06.633] [bmv2] [T] [thread 6507] [10.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:19:06.633] [bmv2] [D] [thread 6507] [10.0] [cxt 0] Pipeline 'ingress': end
+[12:19:06.633] [bmv2] [D] [thread 6507] [10.0] [cxt 0] Egress port is 511
+[12:19:06.633] [bmv2] [D] [thread 6507] [10.0] [cxt 0] Dropping packet at the end of ingress
+[12:19:06.633] [bmv2] [D] [thread 6507] [11.0] [cxt 0] Processing packet received on port 8
+[12:19:06.633] [bmv2] [D] [thread 6507] [11.0] [cxt 0] Parser 'parser': start
+[12:19:06.633] [bmv2] [D] [thread 6507] [11.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:19:06.633] [bmv2] [D] [thread 6507] [11.0] [cxt 0] Extracting header 'ethernet'
+[12:19:06.633] [bmv2] [D] [thread 6507] [11.0] [cxt 0] Parser state 'start': key is 0800
+[12:19:06.633] [bmv2] [T] [thread 6507] [11.0] [cxt 0] Bytes parsed: 14
+[12:19:06.633] [bmv2] [D] [thread 6507] [11.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:19:06.633] [bmv2] [D] [thread 6507] [11.0] [cxt 0] Extracting header 'ipv4'
+[12:19:06.633] [bmv2] [D] [thread 6507] [11.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:19:06.633] [bmv2] [T] [thread 6507] [11.0] [cxt 0] Bytes parsed: 34
+[12:19:06.633] [bmv2] [D] [thread 6507] [11.0] [cxt 0] Parser 'parser': end
+[12:19:06.633] [bmv2] [D] [thread 6507] [11.0] [cxt 0] Pipeline 'ingress': start
+[12:19:06.633] [bmv2] [T] [thread 6507] [11.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:19:06.633] [bmv2] [T] [thread 6507] [11.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:19:06.633] [bmv2] [T] [thread 6507] [11.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:19:06.633] [bmv2] [T] [thread 6507] [11.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:19:06.633] [bmv2] [T] [thread 6507] [11.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:19:06.633] [bmv2] [T] [thread 6507] [11.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:19:06.633] [bmv2] [T] [thread 6507] [11.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:19:06.633] [bmv2] [T] [thread 6507] [11.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:19:06.633] [bmv2] [T] [thread 6507] [11.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:19:06.633] [bmv2] [T] [thread 6507] [11.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:19:06.633] [bmv2] [D] [thread 6507] [11.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:19:06.633] [bmv2] [D] [thread 6507] [11.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:19:06.633] [bmv2] [D] [thread 6507] [11.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:19:06.633] [bmv2] [T] [thread 6507] [11.0] [cxt 0] Action MyIngress.drop
+[12:19:06.633] [bmv2] [T] [thread 6507] [11.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:19:06.633] [bmv2] [D] [thread 6507] [11.0] [cxt 0] Pipeline 'ingress': end
+[12:19:06.633] [bmv2] [D] [thread 6507] [11.0] [cxt 0] Egress port is 511
+[12:19:06.633] [bmv2] [D] [thread 6507] [11.0] [cxt 0] Dropping packet at the end of ingress
+[12:19:07.633] [bmv2] [D] [thread 6507] [12.0] [cxt 0] Processing packet received on port 3
+[12:19:07.633] [bmv2] [D] [thread 6507] [12.0] [cxt 0] Parser 'parser': start
+[12:19:07.633] [bmv2] [D] [thread 6507] [12.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:19:07.633] [bmv2] [D] [thread 6507] [12.0] [cxt 0] Extracting header 'ethernet'
+[12:19:07.633] [bmv2] [D] [thread 6507] [12.0] [cxt 0] Parser state 'start': key is 0800
+[12:19:07.633] [bmv2] [T] [thread 6507] [12.0] [cxt 0] Bytes parsed: 14
+[12:19:07.633] [bmv2] [D] [thread 6507] [12.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:19:07.633] [bmv2] [D] [thread 6507] [12.0] [cxt 0] Extracting header 'ipv4'
+[12:19:07.633] [bmv2] [D] [thread 6507] [12.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:19:07.633] [bmv2] [T] [thread 6507] [12.0] [cxt 0] Bytes parsed: 34
+[12:19:07.633] [bmv2] [D] [thread 6507] [12.0] [cxt 0] Parser 'parser': end
+[12:19:07.633] [bmv2] [D] [thread 6507] [12.0] [cxt 0] Pipeline 'ingress': start
+[12:19:07.633] [bmv2] [T] [thread 6507] [12.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:19:07.633] [bmv2] [T] [thread 6507] [12.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:19:07.633] [bmv2] [T] [thread 6507] [12.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:19:07.633] [bmv2] [T] [thread 6507] [12.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:19:07.633] [bmv2] [T] [thread 6507] [12.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:19:07.634] [bmv2] [D] [thread 6507] [12.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:19:07.634] [bmv2] [D] [thread 6507] [12.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:19:07.634] [bmv2] [D] [thread 6507] [12.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:19:07.634] [bmv2] [T] [thread 6507] [12.0] [cxt 0] Action MyIngress.drop
+[12:19:07.634] [bmv2] [T] [thread 6507] [12.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:19:07.634] [bmv2] [D] [thread 6507] [12.0] [cxt 0] Pipeline 'ingress': end
+[12:19:07.634] [bmv2] [D] [thread 6507] [12.0] [cxt 0] Egress port is 511
+[12:19:07.634] [bmv2] [D] [thread 6507] [12.0] [cxt 0] Dropping packet at the end of ingress
+[12:19:07.634] [bmv2] [D] [thread 6507] [13.0] [cxt 0] Processing packet received on port 8
+[12:19:07.634] [bmv2] [D] [thread 6507] [13.0] [cxt 0] Parser 'parser': start
+[12:19:07.634] [bmv2] [D] [thread 6507] [13.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:19:07.634] [bmv2] [D] [thread 6507] [13.0] [cxt 0] Extracting header 'ethernet'
+[12:19:07.634] [bmv2] [D] [thread 6507] [13.0] [cxt 0] Parser state 'start': key is 0800
+[12:19:07.634] [bmv2] [T] [thread 6507] [13.0] [cxt 0] Bytes parsed: 14
+[12:19:07.634] [bmv2] [D] [thread 6507] [13.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:19:07.634] [bmv2] [D] [thread 6507] [13.0] [cxt 0] Extracting header 'ipv4'
+[12:19:07.634] [bmv2] [D] [thread 6507] [13.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:19:07.634] [bmv2] [T] [thread 6507] [13.0] [cxt 0] Bytes parsed: 34
+[12:19:07.634] [bmv2] [D] [thread 6507] [13.0] [cxt 0] Parser 'parser': end
+[12:19:07.634] [bmv2] [D] [thread 6507] [13.0] [cxt 0] Pipeline 'ingress': start
+[12:19:07.634] [bmv2] [T] [thread 6507] [13.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:19:07.634] [bmv2] [T] [thread 6507] [13.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:19:07.634] [bmv2] [T] [thread 6507] [13.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:19:07.634] [bmv2] [T] [thread 6507] [13.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:19:07.634] [bmv2] [T] [thread 6507] [13.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:19:07.634] [bmv2] [T] [thread 6507] [13.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:19:07.634] [bmv2] [T] [thread 6507] [13.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:19:07.634] [bmv2] [T] [thread 6507] [13.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:19:07.634] [bmv2] [T] [thread 6507] [13.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:19:07.635] [bmv2] [T] [thread 6507] [13.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:19:07.635] [bmv2] [D] [thread 6507] [13.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:19:07.635] [bmv2] [D] [thread 6507] [13.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:19:07.635] [bmv2] [D] [thread 6507] [13.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:19:07.635] [bmv2] [T] [thread 6507] [13.0] [cxt 0] Action MyIngress.drop
+[12:19:07.635] [bmv2] [T] [thread 6507] [13.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:19:07.635] [bmv2] [D] [thread 6507] [13.0] [cxt 0] Pipeline 'ingress': end
+[12:19:07.635] [bmv2] [D] [thread 6507] [13.0] [cxt 0] Egress port is 511
+[12:19:07.635] [bmv2] [D] [thread 6507] [13.0] [cxt 0] Dropping packet at the end of ingress
+[12:19:08.634] [bmv2] [D] [thread 6507] [14.0] [cxt 0] Processing packet received on port 3
+[12:19:08.634] [bmv2] [D] [thread 6507] [14.0] [cxt 0] Parser 'parser': start
+[12:19:08.634] [bmv2] [D] [thread 6507] [14.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:19:08.634] [bmv2] [D] [thread 6507] [14.0] [cxt 0] Extracting header 'ethernet'
+[12:19:08.634] [bmv2] [D] [thread 6507] [14.0] [cxt 0] Parser state 'start': key is 0800
+[12:19:08.634] [bmv2] [T] [thread 6507] [14.0] [cxt 0] Bytes parsed: 14
+[12:19:08.634] [bmv2] [D] [thread 6507] [14.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:19:08.634] [bmv2] [D] [thread 6507] [14.0] [cxt 0] Extracting header 'ipv4'
+[12:19:08.635] [bmv2] [D] [thread 6507] [14.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:19:08.635] [bmv2] [T] [thread 6507] [14.0] [cxt 0] Bytes parsed: 34
+[12:19:08.635] [bmv2] [D] [thread 6507] [14.0] [cxt 0] Parser 'parser': end
+[12:19:08.635] [bmv2] [D] [thread 6507] [14.0] [cxt 0] Pipeline 'ingress': start
+[12:19:08.635] [bmv2] [T] [thread 6507] [14.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:19:08.635] [bmv2] [T] [thread 6507] [14.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:19:08.635] [bmv2] [T] [thread 6507] [14.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:19:08.635] [bmv2] [T] [thread 6507] [14.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:19:08.635] [bmv2] [T] [thread 6507] [14.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:19:08.635] [bmv2] [D] [thread 6507] [14.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:19:08.635] [bmv2] [D] [thread 6507] [14.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:19:08.635] [bmv2] [D] [thread 6507] [14.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:19:08.635] [bmv2] [T] [thread 6507] [14.0] [cxt 0] Action MyIngress.drop
+[12:19:08.635] [bmv2] [T] [thread 6507] [14.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:19:08.635] [bmv2] [D] [thread 6507] [14.0] [cxt 0] Pipeline 'ingress': end
+[12:19:08.635] [bmv2] [D] [thread 6507] [14.0] [cxt 0] Egress port is 511
+[12:19:08.635] [bmv2] [D] [thread 6507] [14.0] [cxt 0] Dropping packet at the end of ingress
+[12:19:08.635] [bmv2] [D] [thread 6507] [15.0] [cxt 0] Processing packet received on port 8
+[12:19:08.635] [bmv2] [D] [thread 6507] [15.0] [cxt 0] Parser 'parser': start
+[12:19:08.636] [bmv2] [D] [thread 6507] [15.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:19:08.636] [bmv2] [D] [thread 6507] [15.0] [cxt 0] Extracting header 'ethernet'
+[12:19:08.636] [bmv2] [D] [thread 6507] [15.0] [cxt 0] Parser state 'start': key is 0800
+[12:19:08.636] [bmv2] [T] [thread 6507] [15.0] [cxt 0] Bytes parsed: 14
+[12:19:08.636] [bmv2] [D] [thread 6507] [15.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:19:08.636] [bmv2] [D] [thread 6507] [15.0] [cxt 0] Extracting header 'ipv4'
+[12:19:08.636] [bmv2] [D] [thread 6507] [15.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:19:08.636] [bmv2] [T] [thread 6507] [15.0] [cxt 0] Bytes parsed: 34
+[12:19:08.636] [bmv2] [D] [thread 6507] [15.0] [cxt 0] Parser 'parser': end
+[12:19:08.636] [bmv2] [D] [thread 6507] [15.0] [cxt 0] Pipeline 'ingress': start
+[12:19:08.636] [bmv2] [T] [thread 6507] [15.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:19:08.636] [bmv2] [T] [thread 6507] [15.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:19:08.636] [bmv2] [T] [thread 6507] [15.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:19:08.636] [bmv2] [T] [thread 6507] [15.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:19:08.636] [bmv2] [T] [thread 6507] [15.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:19:08.636] [bmv2] [T] [thread 6507] [15.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:19:08.636] [bmv2] [T] [thread 6507] [15.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:19:08.636] [bmv2] [T] [thread 6507] [15.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:19:08.636] [bmv2] [T] [thread 6507] [15.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:19:08.636] [bmv2] [T] [thread 6507] [15.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:19:08.636] [bmv2] [D] [thread 6507] [15.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:19:08.636] [bmv2] [D] [thread 6507] [15.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:19:08.637] [bmv2] [D] [thread 6507] [15.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:19:08.637] [bmv2] [T] [thread 6507] [15.0] [cxt 0] Action MyIngress.drop
+[12:19:08.637] [bmv2] [T] [thread 6507] [15.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:19:08.637] [bmv2] [D] [thread 6507] [15.0] [cxt 0] Pipeline 'ingress': end
+[12:19:08.637] [bmv2] [D] [thread 6507] [15.0] [cxt 0] Egress port is 511
+[12:19:08.637] [bmv2] [D] [thread 6507] [15.0] [cxt 0] Dropping packet at the end of ingress
+[12:21:05.633] [bmv2] [D] [thread 6507] [16.0] [cxt 0] Processing packet received on port 3
+[12:21:05.633] [bmv2] [D] [thread 6507] [16.0] [cxt 0] Parser 'parser': start
+[12:21:05.633] [bmv2] [D] [thread 6507] [16.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:21:05.633] [bmv2] [D] [thread 6507] [16.0] [cxt 0] Extracting header 'ethernet'
+[12:21:05.633] [bmv2] [D] [thread 6507] [16.0] [cxt 0] Parser state 'start': key is 0800
+[12:21:05.633] [bmv2] [T] [thread 6507] [16.0] [cxt 0] Bytes parsed: 14
+[12:21:05.633] [bmv2] [D] [thread 6507] [16.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:21:05.633] [bmv2] [D] [thread 6507] [16.0] [cxt 0] Extracting header 'ipv4'
+[12:21:05.633] [bmv2] [D] [thread 6507] [16.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:21:05.633] [bmv2] [T] [thread 6507] [16.0] [cxt 0] Bytes parsed: 34
+[12:21:05.633] [bmv2] [D] [thread 6507] [16.0] [cxt 0] Parser 'parser': end
+[12:21:05.633] [bmv2] [D] [thread 6507] [16.0] [cxt 0] Pipeline 'ingress': start
+[12:21:05.633] [bmv2] [T] [thread 6507] [16.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:21:05.633] [bmv2] [T] [thread 6507] [16.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:21:05.633] [bmv2] [T] [thread 6507] [16.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:21:05.633] [bmv2] [T] [thread 6507] [16.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:21:05.633] [bmv2] [T] [thread 6507] [16.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:21:05.633] [bmv2] [D] [thread 6507] [16.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:21:05.633] [bmv2] [D] [thread 6507] [16.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:21:05.633] [bmv2] [D] [thread 6507] [16.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:21:05.634] [bmv2] [T] [thread 6507] [16.0] [cxt 0] Action MyIngress.drop
+[12:21:05.634] [bmv2] [T] [thread 6507] [16.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:21:05.634] [bmv2] [D] [thread 6507] [16.0] [cxt 0] Pipeline 'ingress': end
+[12:21:05.634] [bmv2] [D] [thread 6507] [16.0] [cxt 0] Egress port is 511
+[12:21:05.634] [bmv2] [D] [thread 6507] [16.0] [cxt 0] Dropping packet at the end of ingress
+[12:21:05.634] [bmv2] [D] [thread 6507] [17.0] [cxt 0] Processing packet received on port 8
+[12:21:05.634] [bmv2] [D] [thread 6507] [17.0] [cxt 0] Parser 'parser': start
+[12:21:05.634] [bmv2] [D] [thread 6507] [17.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:21:05.634] [bmv2] [D] [thread 6507] [17.0] [cxt 0] Extracting header 'ethernet'
+[12:21:05.634] [bmv2] [D] [thread 6507] [17.0] [cxt 0] Parser state 'start': key is 0800
+[12:21:05.634] [bmv2] [T] [thread 6507] [17.0] [cxt 0] Bytes parsed: 14
+[12:21:05.634] [bmv2] [D] [thread 6507] [17.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:21:05.634] [bmv2] [D] [thread 6507] [17.0] [cxt 0] Extracting header 'ipv4'
+[12:21:05.634] [bmv2] [D] [thread 6507] [17.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:21:05.634] [bmv2] [T] [thread 6507] [17.0] [cxt 0] Bytes parsed: 34
+[12:21:05.634] [bmv2] [D] [thread 6507] [17.0] [cxt 0] Parser 'parser': end
+[12:21:05.634] [bmv2] [D] [thread 6507] [17.0] [cxt 0] Pipeline 'ingress': start
+[12:21:05.634] [bmv2] [T] [thread 6507] [17.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:21:05.634] [bmv2] [T] [thread 6507] [17.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:21:05.634] [bmv2] [T] [thread 6507] [17.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:21:05.634] [bmv2] [T] [thread 6507] [17.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:21:05.634] [bmv2] [T] [thread 6507] [17.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:21:05.634] [bmv2] [T] [thread 6507] [17.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:21:05.634] [bmv2] [T] [thread 6507] [17.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:21:05.634] [bmv2] [T] [thread 6507] [17.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:21:05.634] [bmv2] [T] [thread 6507] [17.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:21:05.634] [bmv2] [T] [thread 6507] [17.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:21:05.634] [bmv2] [D] [thread 6507] [17.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:21:05.635] [bmv2] [D] [thread 6507] [17.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:21:05.635] [bmv2] [D] [thread 6507] [17.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:21:05.635] [bmv2] [T] [thread 6507] [17.0] [cxt 0] Action MyIngress.drop
+[12:21:05.635] [bmv2] [T] [thread 6507] [17.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:21:05.635] [bmv2] [D] [thread 6507] [17.0] [cxt 0] Pipeline 'ingress': end
+[12:21:05.635] [bmv2] [D] [thread 6507] [17.0] [cxt 0] Egress port is 511
+[12:21:05.635] [bmv2] [D] [thread 6507] [17.0] [cxt 0] Dropping packet at the end of ingress
+[12:21:06.634] [bmv2] [D] [thread 6507] [18.0] [cxt 0] Processing packet received on port 3
+[12:21:06.634] [bmv2] [D] [thread 6507] [18.0] [cxt 0] Parser 'parser': start
+[12:21:06.634] [bmv2] [D] [thread 6507] [18.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:21:06.634] [bmv2] [D] [thread 6507] [18.0] [cxt 0] Extracting header 'ethernet'
+[12:21:06.634] [bmv2] [D] [thread 6507] [18.0] [cxt 0] Parser state 'start': key is 0800
+[12:21:06.634] [bmv2] [T] [thread 6507] [18.0] [cxt 0] Bytes parsed: 14
+[12:21:06.634] [bmv2] [D] [thread 6507] [18.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:21:06.634] [bmv2] [D] [thread 6507] [18.0] [cxt 0] Extracting header 'ipv4'
+[12:21:06.634] [bmv2] [D] [thread 6507] [18.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:21:06.634] [bmv2] [T] [thread 6507] [18.0] [cxt 0] Bytes parsed: 34
+[12:21:06.634] [bmv2] [D] [thread 6507] [18.0] [cxt 0] Parser 'parser': end
+[12:21:06.634] [bmv2] [D] [thread 6507] [18.0] [cxt 0] Pipeline 'ingress': start
+[12:21:06.634] [bmv2] [T] [thread 6507] [18.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:21:06.634] [bmv2] [T] [thread 6507] [18.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:21:06.634] [bmv2] [T] [thread 6507] [18.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:21:06.634] [bmv2] [T] [thread 6507] [18.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:21:06.634] [bmv2] [T] [thread 6507] [18.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:21:06.635] [bmv2] [D] [thread 6507] [18.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:21:06.635] [bmv2] [D] [thread 6507] [18.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:21:06.635] [bmv2] [D] [thread 6507] [18.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:21:06.635] [bmv2] [T] [thread 6507] [18.0] [cxt 0] Action MyIngress.drop
+[12:21:06.635] [bmv2] [T] [thread 6507] [18.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:21:06.635] [bmv2] [D] [thread 6507] [18.0] [cxt 0] Pipeline 'ingress': end
+[12:21:06.635] [bmv2] [D] [thread 6507] [18.0] [cxt 0] Egress port is 511
+[12:21:06.635] [bmv2] [D] [thread 6507] [18.0] [cxt 0] Dropping packet at the end of ingress
+[12:21:06.635] [bmv2] [D] [thread 6507] [19.0] [cxt 0] Processing packet received on port 8
+[12:21:06.635] [bmv2] [D] [thread 6507] [19.0] [cxt 0] Parser 'parser': start
+[12:21:06.635] [bmv2] [D] [thread 6507] [19.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:21:06.635] [bmv2] [D] [thread 6507] [19.0] [cxt 0] Extracting header 'ethernet'
+[12:21:06.635] [bmv2] [D] [thread 6507] [19.0] [cxt 0] Parser state 'start': key is 0800
+[12:21:06.635] [bmv2] [T] [thread 6507] [19.0] [cxt 0] Bytes parsed: 14
+[12:21:06.635] [bmv2] [D] [thread 6507] [19.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:21:06.635] [bmv2] [D] [thread 6507] [19.0] [cxt 0] Extracting header 'ipv4'
+[12:21:06.635] [bmv2] [D] [thread 6507] [19.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:21:06.635] [bmv2] [T] [thread 6507] [19.0] [cxt 0] Bytes parsed: 34
+[12:21:06.635] [bmv2] [D] [thread 6507] [19.0] [cxt 0] Parser 'parser': end
+[12:21:06.635] [bmv2] [D] [thread 6507] [19.0] [cxt 0] Pipeline 'ingress': start
+[12:21:06.635] [bmv2] [T] [thread 6507] [19.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:21:06.635] [bmv2] [T] [thread 6507] [19.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:21:06.635] [bmv2] [T] [thread 6507] [19.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:21:06.635] [bmv2] [T] [thread 6507] [19.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:21:06.635] [bmv2] [T] [thread 6507] [19.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:21:06.635] [bmv2] [T] [thread 6507] [19.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:21:06.635] [bmv2] [T] [thread 6507] [19.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:21:06.635] [bmv2] [T] [thread 6507] [19.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:21:06.635] [bmv2] [T] [thread 6507] [19.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:21:06.635] [bmv2] [T] [thread 6507] [19.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:21:06.636] [bmv2] [D] [thread 6507] [19.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:21:06.636] [bmv2] [D] [thread 6507] [19.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:21:06.636] [bmv2] [D] [thread 6507] [19.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:21:06.636] [bmv2] [T] [thread 6507] [19.0] [cxt 0] Action MyIngress.drop
+[12:21:06.636] [bmv2] [T] [thread 6507] [19.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:21:06.636] [bmv2] [D] [thread 6507] [19.0] [cxt 0] Pipeline 'ingress': end
+[12:21:06.636] [bmv2] [D] [thread 6507] [19.0] [cxt 0] Egress port is 511
+[12:21:06.636] [bmv2] [D] [thread 6507] [19.0] [cxt 0] Dropping packet at the end of ingress
+[12:21:07.635] [bmv2] [D] [thread 6507] [20.0] [cxt 0] Processing packet received on port 3
+[12:21:07.635] [bmv2] [D] [thread 6507] [20.0] [cxt 0] Parser 'parser': start
+[12:21:07.635] [bmv2] [D] [thread 6507] [20.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:21:07.635] [bmv2] [D] [thread 6507] [20.0] [cxt 0] Extracting header 'ethernet'
+[12:21:07.635] [bmv2] [D] [thread 6507] [20.0] [cxt 0] Parser state 'start': key is 0800
+[12:21:07.635] [bmv2] [T] [thread 6507] [20.0] [cxt 0] Bytes parsed: 14
+[12:21:07.635] [bmv2] [D] [thread 6507] [20.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:21:07.635] [bmv2] [D] [thread 6507] [20.0] [cxt 0] Extracting header 'ipv4'
+[12:21:07.635] [bmv2] [D] [thread 6507] [20.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:21:07.635] [bmv2] [T] [thread 6507] [20.0] [cxt 0] Bytes parsed: 34
+[12:21:07.635] [bmv2] [D] [thread 6507] [20.0] [cxt 0] Parser 'parser': end
+[12:21:07.635] [bmv2] [D] [thread 6507] [20.0] [cxt 0] Pipeline 'ingress': start
+[12:21:07.635] [bmv2] [T] [thread 6507] [20.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:21:07.635] [bmv2] [T] [thread 6507] [20.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:21:07.635] [bmv2] [T] [thread 6507] [20.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:21:07.635] [bmv2] [T] [thread 6507] [20.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:21:07.635] [bmv2] [T] [thread 6507] [20.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:21:07.635] [bmv2] [D] [thread 6507] [20.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:21:07.635] [bmv2] [D] [thread 6507] [20.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:21:07.636] [bmv2] [D] [thread 6507] [20.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:21:07.636] [bmv2] [T] [thread 6507] [20.0] [cxt 0] Action MyIngress.drop
+[12:21:07.636] [bmv2] [T] [thread 6507] [20.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:21:07.636] [bmv2] [D] [thread 6507] [20.0] [cxt 0] Pipeline 'ingress': end
+[12:21:07.636] [bmv2] [D] [thread 6507] [20.0] [cxt 0] Egress port is 511
+[12:21:07.636] [bmv2] [D] [thread 6507] [20.0] [cxt 0] Dropping packet at the end of ingress
+[12:21:07.636] [bmv2] [D] [thread 6507] [21.0] [cxt 0] Processing packet received on port 8
+[12:21:07.636] [bmv2] [D] [thread 6507] [21.0] [cxt 0] Parser 'parser': start
+[12:21:07.636] [bmv2] [D] [thread 6507] [21.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:21:07.636] [bmv2] [D] [thread 6507] [21.0] [cxt 0] Extracting header 'ethernet'
+[12:21:07.636] [bmv2] [D] [thread 6507] [21.0] [cxt 0] Parser state 'start': key is 0800
+[12:21:07.636] [bmv2] [T] [thread 6507] [21.0] [cxt 0] Bytes parsed: 14
+[12:21:07.636] [bmv2] [D] [thread 6507] [21.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:21:07.636] [bmv2] [D] [thread 6507] [21.0] [cxt 0] Extracting header 'ipv4'
+[12:21:07.636] [bmv2] [D] [thread 6507] [21.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:21:07.636] [bmv2] [T] [thread 6507] [21.0] [cxt 0] Bytes parsed: 34
+[12:21:07.636] [bmv2] [D] [thread 6507] [21.0] [cxt 0] Parser 'parser': end
+[12:21:07.636] [bmv2] [D] [thread 6507] [21.0] [cxt 0] Pipeline 'ingress': start
+[12:21:07.636] [bmv2] [T] [thread 6507] [21.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:21:07.636] [bmv2] [T] [thread 6507] [21.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:21:07.636] [bmv2] [T] [thread 6507] [21.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:21:07.636] [bmv2] [T] [thread 6507] [21.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:21:07.636] [bmv2] [T] [thread 6507] [21.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:21:07.636] [bmv2] [T] [thread 6507] [21.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:21:07.636] [bmv2] [T] [thread 6507] [21.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:21:07.636] [bmv2] [T] [thread 6507] [21.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:21:07.636] [bmv2] [T] [thread 6507] [21.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:21:07.636] [bmv2] [T] [thread 6507] [21.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:21:07.637] [bmv2] [D] [thread 6507] [21.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:21:07.637] [bmv2] [D] [thread 6507] [21.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:21:07.637] [bmv2] [D] [thread 6507] [21.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:21:07.637] [bmv2] [T] [thread 6507] [21.0] [cxt 0] Action MyIngress.drop
+[12:21:07.637] [bmv2] [T] [thread 6507] [21.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:21:07.637] [bmv2] [D] [thread 6507] [21.0] [cxt 0] Pipeline 'ingress': end
+[12:21:07.637] [bmv2] [D] [thread 6507] [21.0] [cxt 0] Egress port is 511
+[12:21:07.637] [bmv2] [D] [thread 6507] [21.0] [cxt 0] Dropping packet at the end of ingress
+[12:21:08.635] [bmv2] [D] [thread 6507] [22.0] [cxt 0] Processing packet received on port 3
+[12:21:08.635] [bmv2] [D] [thread 6507] [22.0] [cxt 0] Parser 'parser': start
+[12:21:08.635] [bmv2] [D] [thread 6507] [22.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:21:08.635] [bmv2] [D] [thread 6507] [22.0] [cxt 0] Extracting header 'ethernet'
+[12:21:08.635] [bmv2] [D] [thread 6507] [22.0] [cxt 0] Parser state 'start': key is 0800
+[12:21:08.636] [bmv2] [T] [thread 6507] [22.0] [cxt 0] Bytes parsed: 14
+[12:21:08.636] [bmv2] [D] [thread 6507] [22.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:21:08.636] [bmv2] [D] [thread 6507] [22.0] [cxt 0] Extracting header 'ipv4'
+[12:21:08.636] [bmv2] [D] [thread 6507] [22.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:21:08.636] [bmv2] [T] [thread 6507] [22.0] [cxt 0] Bytes parsed: 34
+[12:21:08.636] [bmv2] [D] [thread 6507] [22.0] [cxt 0] Parser 'parser': end
+[12:21:08.636] [bmv2] [D] [thread 6507] [22.0] [cxt 0] Pipeline 'ingress': start
+[12:21:08.636] [bmv2] [T] [thread 6507] [22.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:21:08.636] [bmv2] [T] [thread 6507] [22.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:21:08.636] [bmv2] [T] [thread 6507] [22.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:21:08.636] [bmv2] [T] [thread 6507] [22.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:21:08.636] [bmv2] [T] [thread 6507] [22.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:21:08.636] [bmv2] [D] [thread 6507] [22.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:21:08.636] [bmv2] [D] [thread 6507] [22.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:21:08.636] [bmv2] [D] [thread 6507] [22.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:21:08.636] [bmv2] [T] [thread 6507] [22.0] [cxt 0] Action MyIngress.drop
+[12:21:08.636] [bmv2] [T] [thread 6507] [22.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:21:08.636] [bmv2] [D] [thread 6507] [22.0] [cxt 0] Pipeline 'ingress': end
+[12:21:08.636] [bmv2] [D] [thread 6507] [22.0] [cxt 0] Egress port is 511
+[12:21:08.636] [bmv2] [D] [thread 6507] [22.0] [cxt 0] Dropping packet at the end of ingress
+[12:21:08.636] [bmv2] [D] [thread 6507] [23.0] [cxt 0] Processing packet received on port 8
+[12:21:08.636] [bmv2] [D] [thread 6507] [23.0] [cxt 0] Parser 'parser': start
+[12:21:08.636] [bmv2] [D] [thread 6507] [23.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:21:08.636] [bmv2] [D] [thread 6507] [23.0] [cxt 0] Extracting header 'ethernet'
+[12:21:08.636] [bmv2] [D] [thread 6507] [23.0] [cxt 0] Parser state 'start': key is 0800
+[12:21:08.636] [bmv2] [T] [thread 6507] [23.0] [cxt 0] Bytes parsed: 14
+[12:21:08.636] [bmv2] [D] [thread 6507] [23.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:21:08.636] [bmv2] [D] [thread 6507] [23.0] [cxt 0] Extracting header 'ipv4'
+[12:21:08.636] [bmv2] [D] [thread 6507] [23.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:21:08.636] [bmv2] [T] [thread 6507] [23.0] [cxt 0] Bytes parsed: 34
+[12:21:08.636] [bmv2] [D] [thread 6507] [23.0] [cxt 0] Parser 'parser': end
+[12:21:08.636] [bmv2] [D] [thread 6507] [23.0] [cxt 0] Pipeline 'ingress': start
+[12:21:08.636] [bmv2] [T] [thread 6507] [23.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:21:08.636] [bmv2] [T] [thread 6507] [23.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:21:08.636] [bmv2] [T] [thread 6507] [23.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:21:08.636] [bmv2] [T] [thread 6507] [23.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:21:08.636] [bmv2] [T] [thread 6507] [23.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:21:08.636] [bmv2] [T] [thread 6507] [23.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:21:08.636] [bmv2] [T] [thread 6507] [23.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:21:08.636] [bmv2] [T] [thread 6507] [23.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:21:08.636] [bmv2] [T] [thread 6507] [23.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:21:08.636] [bmv2] [T] [thread 6507] [23.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:21:08.636] [bmv2] [D] [thread 6507] [23.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:21:08.636] [bmv2] [D] [thread 6507] [23.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:21:08.637] [bmv2] [D] [thread 6507] [23.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:21:08.637] [bmv2] [T] [thread 6507] [23.0] [cxt 0] Action MyIngress.drop
+[12:21:08.637] [bmv2] [T] [thread 6507] [23.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:21:08.637] [bmv2] [D] [thread 6507] [23.0] [cxt 0] Pipeline 'ingress': end
+[12:21:08.637] [bmv2] [D] [thread 6507] [23.0] [cxt 0] Egress port is 511
+[12:21:08.637] [bmv2] [D] [thread 6507] [23.0] [cxt 0] Dropping packet at the end of ingress
+[12:21:33.502] [bmv2] [D] [thread 6507] [24.0] [cxt 0] Processing packet received on port 3
+[12:21:33.502] [bmv2] [D] [thread 6507] [24.0] [cxt 0] Parser 'parser': start
+[12:21:33.502] [bmv2] [D] [thread 6507] [24.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:21:33.502] [bmv2] [D] [thread 6507] [24.0] [cxt 0] Extracting header 'ethernet'
+[12:21:33.502] [bmv2] [D] [thread 6507] [24.0] [cxt 0] Parser state 'start': key is 86dd
+[12:21:33.502] [bmv2] [T] [thread 6507] [24.0] [cxt 0] Bytes parsed: 14
+[12:21:33.502] [bmv2] [D] [thread 6507] [24.0] [cxt 0] Parser 'parser': end
+[12:21:33.503] [bmv2] [D] [thread 6507] [24.0] [cxt 0] Pipeline 'ingress': start
+[12:21:33.503] [bmv2] [T] [thread 6507] [24.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is false
+[12:21:33.503] [bmv2] [D] [thread 6507] [24.0] [cxt 0] Pipeline 'ingress': end
+[12:21:33.503] [bmv2] [D] [thread 6507] [24.0] [cxt 0] Egress port is 0
+[12:21:33.503] [bmv2] [D] [thread 6508] [24.0] [cxt 0] Pipeline 'egress': start
+[12:21:33.503] [bmv2] [D] [thread 6508] [24.0] [cxt 0] Pipeline 'egress': end
+[12:21:33.503] [bmv2] [D] [thread 6508] [24.0] [cxt 0] Deparser 'deparser': start
+[12:21:33.503] [bmv2] [T] [thread 6508] [24.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[12:21:33.503] [bmv2] [D] [thread 6508] [24.0] [cxt 0] Deparsing header 'ethernet'
+[12:21:33.503] [bmv2] [D] [thread 6508] [24.0] [cxt 0] Deparser 'deparser': end
+[12:21:33.503] [bmv2] [D] [thread 6512] [24.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[12:22:05.155] [bmv2] [D] [thread 6507] [25.0] [cxt 0] Processing packet received on port 3
+[12:22:05.155] [bmv2] [D] [thread 6507] [25.0] [cxt 0] Parser 'parser': start
+[12:22:05.155] [bmv2] [D] [thread 6507] [25.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:22:05.155] [bmv2] [D] [thread 6507] [25.0] [cxt 0] Extracting header 'ethernet'
+[12:22:05.155] [bmv2] [D] [thread 6507] [25.0] [cxt 0] Parser state 'start': key is 0800
+[12:22:05.155] [bmv2] [T] [thread 6507] [25.0] [cxt 0] Bytes parsed: 14
+[12:22:05.155] [bmv2] [D] [thread 6507] [25.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:22:05.155] [bmv2] [D] [thread 6507] [25.0] [cxt 0] Extracting header 'ipv4'
+[12:22:05.155] [bmv2] [D] [thread 6507] [25.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:22:05.155] [bmv2] [T] [thread 6507] [25.0] [cxt 0] Bytes parsed: 34
+[12:22:05.155] [bmv2] [D] [thread 6507] [25.0] [cxt 0] Parser 'parser': end
+[12:22:05.155] [bmv2] [D] [thread 6507] [25.0] [cxt 0] Pipeline 'ingress': start
+[12:22:05.155] [bmv2] [T] [thread 6507] [25.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:22:05.155] [bmv2] [T] [thread 6507] [25.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:22:05.155] [bmv2] [T] [thread 6507] [25.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:22:05.155] [bmv2] [T] [thread 6507] [25.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:22:05.155] [bmv2] [T] [thread 6507] [25.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:22:05.155] [bmv2] [D] [thread 6507] [25.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : e00000fb
+
+[12:22:05.155] [bmv2] [D] [thread 6507] [25.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:22:05.155] [bmv2] [D] [thread 6507] [25.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:22:05.155] [bmv2] [T] [thread 6507] [25.0] [cxt 0] Action MyIngress.drop
+[12:22:05.156] [bmv2] [T] [thread 6507] [25.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:22:05.156] [bmv2] [D] [thread 6507] [25.0] [cxt 0] Pipeline 'ingress': end
+[12:22:05.156] [bmv2] [D] [thread 6507] [25.0] [cxt 0] Egress port is 511
+[12:22:05.156] [bmv2] [D] [thread 6507] [25.0] [cxt 0] Dropping packet at the end of ingress
+[12:22:05.156] [bmv2] [D] [thread 6507] [26.0] [cxt 0] Processing packet received on port 8
+[12:22:05.156] [bmv2] [D] [thread 6507] [26.0] [cxt 0] Parser 'parser': start
+[12:22:05.156] [bmv2] [D] [thread 6507] [26.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:22:05.156] [bmv2] [D] [thread 6507] [26.0] [cxt 0] Extracting header 'ethernet'
+[12:22:05.156] [bmv2] [D] [thread 6507] [26.0] [cxt 0] Parser state 'start': key is 0800
+[12:22:05.156] [bmv2] [T] [thread 6507] [26.0] [cxt 0] Bytes parsed: 14
+[12:22:05.156] [bmv2] [D] [thread 6507] [26.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:22:05.156] [bmv2] [D] [thread 6507] [26.0] [cxt 0] Extracting header 'ipv4'
+[12:22:05.156] [bmv2] [D] [thread 6507] [26.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:22:05.156] [bmv2] [T] [thread 6507] [26.0] [cxt 0] Bytes parsed: 34
+[12:22:05.156] [bmv2] [D] [thread 6507] [26.0] [cxt 0] Parser 'parser': end
+[12:22:05.156] [bmv2] [D] [thread 6507] [26.0] [cxt 0] Pipeline 'ingress': start
+[12:22:05.156] [bmv2] [T] [thread 6507] [26.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:22:05.156] [bmv2] [T] [thread 6507] [26.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:22:05.156] [bmv2] [T] [thread 6507] [26.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:22:05.156] [bmv2] [T] [thread 6507] [26.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:22:05.156] [bmv2] [T] [thread 6507] [26.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:22:05.156] [bmv2] [T] [thread 6507] [26.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:22:05.156] [bmv2] [T] [thread 6507] [26.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:22:05.156] [bmv2] [T] [thread 6507] [26.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:22:05.156] [bmv2] [T] [thread 6507] [26.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:22:05.156] [bmv2] [T] [thread 6507] [26.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:22:05.156] [bmv2] [D] [thread 6507] [26.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : e00000fb
+
+[12:22:05.156] [bmv2] [D] [thread 6507] [26.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:22:05.156] [bmv2] [D] [thread 6507] [26.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:22:05.157] [bmv2] [T] [thread 6507] [26.0] [cxt 0] Action MyIngress.drop
+[12:22:05.157] [bmv2] [T] [thread 6507] [26.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:22:05.157] [bmv2] [D] [thread 6507] [26.0] [cxt 0] Pipeline 'ingress': end
+[12:22:05.157] [bmv2] [D] [thread 6507] [26.0] [cxt 0] Egress port is 511
+[12:22:05.157] [bmv2] [D] [thread 6507] [26.0] [cxt 0] Dropping packet at the end of ingress
+[12:22:05.923] [bmv2] [D] [thread 6507] [27.0] [cxt 0] Processing packet received on port 3
+[12:22:05.923] [bmv2] [D] [thread 6507] [27.0] [cxt 0] Parser 'parser': start
+[12:22:05.923] [bmv2] [D] [thread 6507] [27.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:22:05.923] [bmv2] [D] [thread 6507] [27.0] [cxt 0] Extracting header 'ethernet'
+[12:22:05.923] [bmv2] [D] [thread 6507] [27.0] [cxt 0] Parser state 'start': key is 86dd
+[12:22:05.923] [bmv2] [T] [thread 6507] [27.0] [cxt 0] Bytes parsed: 14
+[12:22:05.923] [bmv2] [D] [thread 6507] [27.0] [cxt 0] Parser 'parser': end
+[12:22:05.923] [bmv2] [D] [thread 6507] [27.0] [cxt 0] Pipeline 'ingress': start
+[12:22:05.923] [bmv2] [T] [thread 6507] [27.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is false
+[12:22:05.923] [bmv2] [D] [thread 6507] [27.0] [cxt 0] Pipeline 'ingress': end
+[12:22:05.923] [bmv2] [D] [thread 6507] [27.0] [cxt 0] Egress port is 0
+[12:22:05.923] [bmv2] [D] [thread 6508] [27.0] [cxt 0] Pipeline 'egress': start
+[12:22:05.924] [bmv2] [D] [thread 6508] [27.0] [cxt 0] Pipeline 'egress': end
+[12:22:05.924] [bmv2] [D] [thread 6508] [27.0] [cxt 0] Deparser 'deparser': start
+[12:22:05.924] [bmv2] [T] [thread 6508] [27.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[12:22:05.924] [bmv2] [D] [thread 6508] [27.0] [cxt 0] Deparsing header 'ethernet'
+[12:22:05.924] [bmv2] [D] [thread 6508] [27.0] [cxt 0] Deparser 'deparser': end
+[12:22:05.924] [bmv2] [D] [thread 6512] [27.0] [cxt 0] Transmitting packet of size 107 out of port 0
+[12:22:06.251] [bmv2] [D] [thread 6507] [28.0] [cxt 0] Processing packet received on port 8
+[12:22:06.251] [bmv2] [D] [thread 6507] [28.0] [cxt 0] Parser 'parser': start
+[12:22:06.251] [bmv2] [D] [thread 6507] [28.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:22:06.251] [bmv2] [D] [thread 6507] [28.0] [cxt 0] Extracting header 'ethernet'
+[12:22:06.251] [bmv2] [D] [thread 6507] [28.0] [cxt 0] Parser state 'start': key is 86dd
+[12:22:06.251] [bmv2] [T] [thread 6507] [28.0] [cxt 0] Bytes parsed: 14
+[12:22:06.251] [bmv2] [D] [thread 6507] [28.0] [cxt 0] Parser 'parser': end
+[12:22:06.252] [bmv2] [D] [thread 6507] [28.0] [cxt 0] Pipeline 'ingress': start
+[12:22:06.252] [bmv2] [T] [thread 6507] [28.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is false
+[12:22:06.252] [bmv2] [D] [thread 6507] [28.0] [cxt 0] Pipeline 'ingress': end
+[12:22:06.252] [bmv2] [D] [thread 6507] [28.0] [cxt 0] Egress port is 0
+[12:22:06.252] [bmv2] [D] [thread 6508] [28.0] [cxt 0] Pipeline 'egress': start
+[12:22:06.252] [bmv2] [D] [thread 6508] [28.0] [cxt 0] Pipeline 'egress': end
+[12:22:06.252] [bmv2] [D] [thread 6508] [28.0] [cxt 0] Deparser 'deparser': start
+[12:22:06.252] [bmv2] [T] [thread 6508] [28.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[12:22:06.252] [bmv2] [D] [thread 6508] [28.0] [cxt 0] Deparsing header 'ethernet'
+[12:22:06.252] [bmv2] [D] [thread 6508] [28.0] [cxt 0] Deparser 'deparser': end
+[12:22:06.252] [bmv2] [D] [thread 6512] [28.0] [cxt 0] Transmitting packet of size 107 out of port 0
+[12:22:06.501] [bmv2] [D] [thread 6507] [29.0] [cxt 0] Processing packet received on port 3
+[12:22:06.501] [bmv2] [D] [thread 6507] [29.0] [cxt 0] Parser 'parser': start
+[12:22:06.501] [bmv2] [D] [thread 6507] [29.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:22:06.501] [bmv2] [D] [thread 6507] [29.0] [cxt 0] Extracting header 'ethernet'
+[12:22:06.501] [bmv2] [D] [thread 6507] [29.0] [cxt 0] Parser state 'start': key is 86dd
+[12:22:06.501] [bmv2] [T] [thread 6507] [29.0] [cxt 0] Bytes parsed: 14
+[12:22:06.502] [bmv2] [D] [thread 6507] [29.0] [cxt 0] Parser 'parser': end
+[12:22:06.502] [bmv2] [D] [thread 6507] [29.0] [cxt 0] Pipeline 'ingress': start
+[12:22:06.502] [bmv2] [T] [thread 6507] [29.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is false
+[12:22:06.502] [bmv2] [D] [thread 6507] [29.0] [cxt 0] Pipeline 'ingress': end
+[12:22:06.502] [bmv2] [D] [thread 6507] [29.0] [cxt 0] Egress port is 0
+[12:22:06.502] [bmv2] [D] [thread 6507] [30.0] [cxt 0] Processing packet received on port 8
+[12:22:06.502] [bmv2] [D] [thread 6507] [30.0] [cxt 0] Parser 'parser': start
+[12:22:06.502] [bmv2] [D] [thread 6507] [30.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:22:06.502] [bmv2] [D] [thread 6507] [30.0] [cxt 0] Extracting header 'ethernet'
+[12:22:06.502] [bmv2] [D] [thread 6508] [29.0] [cxt 0] Pipeline 'egress': start
+[12:22:06.502] [bmv2] [D] [thread 6507] [30.0] [cxt 0] Parser state 'start': key is 86dd
+[12:22:06.502] [bmv2] [D] [thread 6508] [29.0] [cxt 0] Pipeline 'egress': end
+[12:22:06.502] [bmv2] [T] [thread 6507] [30.0] [cxt 0] Bytes parsed: 14
+[12:22:06.502] [bmv2] [D] [thread 6508] [29.0] [cxt 0] Deparser 'deparser': start
+[12:22:06.502] [bmv2] [D] [thread 6507] [30.0] [cxt 0] Parser 'parser': end
+[12:22:06.502] [bmv2] [T] [thread 6508] [29.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[12:22:06.502] [bmv2] [D] [thread 6507] [30.0] [cxt 0] Pipeline 'ingress': start
+[12:22:06.502] [bmv2] [D] [thread 6508] [29.0] [cxt 0] Deparsing header 'ethernet'
+[12:22:06.502] [bmv2] [T] [thread 6507] [30.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is false
+[12:22:06.502] [bmv2] [D] [thread 6508] [29.0] [cxt 0] Deparser 'deparser': end
+[12:22:06.502] [bmv2] [D] [thread 6507] [30.0] [cxt 0] Pipeline 'ingress': end
+[12:22:06.502] [bmv2] [D] [thread 6507] [30.0] [cxt 0] Egress port is 0
+[12:22:06.502] [bmv2] [D] [thread 6512] [29.0] [cxt 0] Transmitting packet of size 107 out of port 0
+[12:22:06.502] [bmv2] [D] [thread 6508] [30.0] [cxt 0] Pipeline 'egress': start
+[12:22:06.502] [bmv2] [D] [thread 6508] [30.0] [cxt 0] Pipeline 'egress': end
+[12:22:06.502] [bmv2] [D] [thread 6508] [30.0] [cxt 0] Deparser 'deparser': start
+[12:22:06.502] [bmv2] [T] [thread 6508] [30.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[12:22:06.502] [bmv2] [D] [thread 6508] [30.0] [cxt 0] Deparsing header 'ethernet'
+[12:22:06.503] [bmv2] [D] [thread 6508] [30.0] [cxt 0] Deparser 'deparser': end
+[12:22:06.503] [bmv2] [D] [thread 6512] [30.0] [cxt 0] Transmitting packet of size 107 out of port 0
+[12:22:22.654] [bmv2] [D] [thread 6507] [31.0] [cxt 0] Processing packet received on port 8
+[12:22:22.654] [bmv2] [D] [thread 6507] [31.0] [cxt 0] Parser 'parser': start
+[12:22:22.654] [bmv2] [D] [thread 6507] [31.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:22:22.654] [bmv2] [D] [thread 6507] [31.0] [cxt 0] Extracting header 'ethernet'
+[12:22:22.654] [bmv2] [D] [thread 6507] [31.0] [cxt 0] Parser state 'start': key is 86dd
+[12:22:22.654] [bmv2] [T] [thread 6507] [31.0] [cxt 0] Bytes parsed: 14
+[12:22:22.654] [bmv2] [D] [thread 6507] [31.0] [cxt 0] Parser 'parser': end
+[12:22:22.654] [bmv2] [D] [thread 6507] [31.0] [cxt 0] Pipeline 'ingress': start
+[12:22:22.654] [bmv2] [T] [thread 6507] [31.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is false
+[12:22:22.654] [bmv2] [D] [thread 6507] [31.0] [cxt 0] Pipeline 'ingress': end
+[12:22:22.654] [bmv2] [D] [thread 6507] [31.0] [cxt 0] Egress port is 0
+[12:22:22.654] [bmv2] [D] [thread 6508] [31.0] [cxt 0] Pipeline 'egress': start
+[12:22:22.654] [bmv2] [D] [thread 6508] [31.0] [cxt 0] Pipeline 'egress': end
+[12:22:22.654] [bmv2] [D] [thread 6508] [31.0] [cxt 0] Deparser 'deparser': start
+[12:22:22.654] [bmv2] [T] [thread 6508] [31.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[12:22:22.654] [bmv2] [D] [thread 6508] [31.0] [cxt 0] Deparsing header 'ethernet'
+[12:22:22.654] [bmv2] [D] [thread 6508] [31.0] [cxt 0] Deparser 'deparser': end
+[12:22:22.654] [bmv2] [D] [thread 6512] [31.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[12:23:05.634] [bmv2] [D] [thread 6507] [32.0] [cxt 0] Processing packet received on port 3
+[12:23:05.634] [bmv2] [D] [thread 6507] [32.0] [cxt 0] Parser 'parser': start
+[12:23:05.634] [bmv2] [D] [thread 6507] [32.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:23:05.634] [bmv2] [D] [thread 6507] [32.0] [cxt 0] Extracting header 'ethernet'
+[12:23:05.634] [bmv2] [D] [thread 6507] [32.0] [cxt 0] Parser state 'start': key is 0800
+[12:23:05.634] [bmv2] [T] [thread 6507] [32.0] [cxt 0] Bytes parsed: 14
+[12:23:05.634] [bmv2] [D] [thread 6507] [32.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:23:05.634] [bmv2] [D] [thread 6507] [32.0] [cxt 0] Extracting header 'ipv4'
+[12:23:05.634] [bmv2] [D] [thread 6507] [32.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:23:05.634] [bmv2] [T] [thread 6507] [32.0] [cxt 0] Bytes parsed: 34
+[12:23:05.634] [bmv2] [D] [thread 6507] [32.0] [cxt 0] Parser 'parser': end
+[12:23:05.635] [bmv2] [D] [thread 6507] [32.0] [cxt 0] Pipeline 'ingress': start
+[12:23:05.635] [bmv2] [T] [thread 6507] [32.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:23:05.635] [bmv2] [T] [thread 6507] [32.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:23:05.635] [bmv2] [T] [thread 6507] [32.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:23:05.635] [bmv2] [T] [thread 6507] [32.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:23:05.635] [bmv2] [T] [thread 6507] [32.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:23:05.635] [bmv2] [D] [thread 6507] [32.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:23:05.635] [bmv2] [D] [thread 6507] [32.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:23:05.635] [bmv2] [D] [thread 6507] [32.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:23:05.635] [bmv2] [T] [thread 6507] [32.0] [cxt 0] Action MyIngress.drop
+[12:23:05.635] [bmv2] [T] [thread 6507] [32.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:23:05.635] [bmv2] [D] [thread 6507] [32.0] [cxt 0] Pipeline 'ingress': end
+[12:23:05.635] [bmv2] [D] [thread 6507] [32.0] [cxt 0] Egress port is 511
+[12:23:05.635] [bmv2] [D] [thread 6507] [32.0] [cxt 0] Dropping packet at the end of ingress
+[12:23:05.635] [bmv2] [D] [thread 6507] [33.0] [cxt 0] Processing packet received on port 8
+[12:23:05.635] [bmv2] [D] [thread 6507] [33.0] [cxt 0] Parser 'parser': start
+[12:23:05.635] [bmv2] [D] [thread 6507] [33.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:23:05.635] [bmv2] [D] [thread 6507] [33.0] [cxt 0] Extracting header 'ethernet'
+[12:23:05.635] [bmv2] [D] [thread 6507] [33.0] [cxt 0] Parser state 'start': key is 0800
+[12:23:05.635] [bmv2] [T] [thread 6507] [33.0] [cxt 0] Bytes parsed: 14
+[12:23:05.635] [bmv2] [D] [thread 6507] [33.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:23:05.635] [bmv2] [D] [thread 6507] [33.0] [cxt 0] Extracting header 'ipv4'
+[12:23:05.635] [bmv2] [D] [thread 6507] [33.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:23:05.635] [bmv2] [T] [thread 6507] [33.0] [cxt 0] Bytes parsed: 34
+[12:23:05.635] [bmv2] [D] [thread 6507] [33.0] [cxt 0] Parser 'parser': end
+[12:23:05.635] [bmv2] [D] [thread 6507] [33.0] [cxt 0] Pipeline 'ingress': start
+[12:23:05.635] [bmv2] [T] [thread 6507] [33.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:23:05.635] [bmv2] [T] [thread 6507] [33.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:23:05.636] [bmv2] [T] [thread 6507] [33.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:23:05.636] [bmv2] [T] [thread 6507] [33.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:23:05.636] [bmv2] [T] [thread 6507] [33.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:23:05.636] [bmv2] [T] [thread 6507] [33.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:23:05.636] [bmv2] [T] [thread 6507] [33.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:23:05.636] [bmv2] [T] [thread 6507] [33.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:23:05.636] [bmv2] [T] [thread 6507] [33.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:23:05.636] [bmv2] [T] [thread 6507] [33.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:23:05.636] [bmv2] [D] [thread 6507] [33.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:23:05.636] [bmv2] [D] [thread 6507] [33.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:23:05.636] [bmv2] [D] [thread 6507] [33.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:23:05.636] [bmv2] [T] [thread 6507] [33.0] [cxt 0] Action MyIngress.drop
+[12:23:05.636] [bmv2] [T] [thread 6507] [33.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:23:05.636] [bmv2] [D] [thread 6507] [33.0] [cxt 0] Pipeline 'ingress': end
+[12:23:05.636] [bmv2] [D] [thread 6507] [33.0] [cxt 0] Egress port is 511
+[12:23:05.636] [bmv2] [D] [thread 6507] [33.0] [cxt 0] Dropping packet at the end of ingress
+[12:23:06.635] [bmv2] [D] [thread 6507] [34.0] [cxt 0] Processing packet received on port 3
+[12:23:06.636] [bmv2] [D] [thread 6507] [34.0] [cxt 0] Parser 'parser': start
+[12:23:06.636] [bmv2] [D] [thread 6507] [34.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:23:06.636] [bmv2] [D] [thread 6507] [34.0] [cxt 0] Extracting header 'ethernet'
+[12:23:06.636] [bmv2] [D] [thread 6507] [34.0] [cxt 0] Parser state 'start': key is 0800
+[12:23:06.636] [bmv2] [T] [thread 6507] [34.0] [cxt 0] Bytes parsed: 14
+[12:23:06.636] [bmv2] [D] [thread 6507] [34.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:23:06.636] [bmv2] [D] [thread 6507] [34.0] [cxt 0] Extracting header 'ipv4'
+[12:23:06.636] [bmv2] [D] [thread 6507] [34.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:23:06.636] [bmv2] [T] [thread 6507] [34.0] [cxt 0] Bytes parsed: 34
+[12:23:06.636] [bmv2] [D] [thread 6507] [34.0] [cxt 0] Parser 'parser': end
+[12:23:06.636] [bmv2] [D] [thread 6507] [34.0] [cxt 0] Pipeline 'ingress': start
+[12:23:06.636] [bmv2] [T] [thread 6507] [34.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:23:06.636] [bmv2] [T] [thread 6507] [34.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:23:06.636] [bmv2] [T] [thread 6507] [34.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:23:06.636] [bmv2] [T] [thread 6507] [34.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:23:06.636] [bmv2] [T] [thread 6507] [34.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:23:06.636] [bmv2] [D] [thread 6507] [34.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:23:06.636] [bmv2] [D] [thread 6507] [34.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:23:06.636] [bmv2] [D] [thread 6507] [34.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:23:06.636] [bmv2] [T] [thread 6507] [34.0] [cxt 0] Action MyIngress.drop
+[12:23:06.636] [bmv2] [T] [thread 6507] [34.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:23:06.636] [bmv2] [D] [thread 6507] [34.0] [cxt 0] Pipeline 'ingress': end
+[12:23:06.636] [bmv2] [D] [thread 6507] [34.0] [cxt 0] Egress port is 511
+[12:23:06.637] [bmv2] [D] [thread 6507] [34.0] [cxt 0] Dropping packet at the end of ingress
+[12:23:06.637] [bmv2] [D] [thread 6507] [35.0] [cxt 0] Processing packet received on port 8
+[12:23:06.637] [bmv2] [D] [thread 6507] [35.0] [cxt 0] Parser 'parser': start
+[12:23:06.637] [bmv2] [D] [thread 6507] [35.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:23:06.637] [bmv2] [D] [thread 6507] [35.0] [cxt 0] Extracting header 'ethernet'
+[12:23:06.637] [bmv2] [D] [thread 6507] [35.0] [cxt 0] Parser state 'start': key is 0800
+[12:23:06.637] [bmv2] [T] [thread 6507] [35.0] [cxt 0] Bytes parsed: 14
+[12:23:06.637] [bmv2] [D] [thread 6507] [35.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:23:06.637] [bmv2] [D] [thread 6507] [35.0] [cxt 0] Extracting header 'ipv4'
+[12:23:06.637] [bmv2] [D] [thread 6507] [35.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:23:06.637] [bmv2] [T] [thread 6507] [35.0] [cxt 0] Bytes parsed: 34
+[12:23:06.637] [bmv2] [D] [thread 6507] [35.0] [cxt 0] Parser 'parser': end
+[12:23:06.637] [bmv2] [D] [thread 6507] [35.0] [cxt 0] Pipeline 'ingress': start
+[12:23:06.637] [bmv2] [T] [thread 6507] [35.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:23:06.637] [bmv2] [T] [thread 6507] [35.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:23:06.637] [bmv2] [T] [thread 6507] [35.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:23:06.637] [bmv2] [T] [thread 6507] [35.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:23:06.637] [bmv2] [T] [thread 6507] [35.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:23:06.637] [bmv2] [T] [thread 6507] [35.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:23:06.637] [bmv2] [T] [thread 6507] [35.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:23:06.637] [bmv2] [T] [thread 6507] [35.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:23:06.637] [bmv2] [T] [thread 6507] [35.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:23:06.637] [bmv2] [T] [thread 6507] [35.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:23:06.637] [bmv2] [D] [thread 6507] [35.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:23:06.637] [bmv2] [D] [thread 6507] [35.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:23:06.637] [bmv2] [D] [thread 6507] [35.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:23:06.637] [bmv2] [T] [thread 6507] [35.0] [cxt 0] Action MyIngress.drop
+[12:23:06.637] [bmv2] [T] [thread 6507] [35.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:23:06.637] [bmv2] [D] [thread 6507] [35.0] [cxt 0] Pipeline 'ingress': end
+[12:23:06.638] [bmv2] [D] [thread 6507] [35.0] [cxt 0] Egress port is 511
+[12:23:06.638] [bmv2] [D] [thread 6507] [35.0] [cxt 0] Dropping packet at the end of ingress
+[12:23:07.637] [bmv2] [D] [thread 6507] [36.0] [cxt 0] Processing packet received on port 3
+[12:23:07.637] [bmv2] [D] [thread 6507] [36.0] [cxt 0] Parser 'parser': start
+[12:23:07.637] [bmv2] [D] [thread 6507] [36.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:23:07.637] [bmv2] [D] [thread 6507] [36.0] [cxt 0] Extracting header 'ethernet'
+[12:23:07.637] [bmv2] [D] [thread 6507] [36.0] [cxt 0] Parser state 'start': key is 0800
+[12:23:07.637] [bmv2] [T] [thread 6507] [36.0] [cxt 0] Bytes parsed: 14
+[12:23:07.637] [bmv2] [D] [thread 6507] [36.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:23:07.637] [bmv2] [D] [thread 6507] [36.0] [cxt 0] Extracting header 'ipv4'
+[12:23:07.638] [bmv2] [D] [thread 6507] [36.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:23:07.638] [bmv2] [T] [thread 6507] [36.0] [cxt 0] Bytes parsed: 34
+[12:23:07.638] [bmv2] [D] [thread 6507] [36.0] [cxt 0] Parser 'parser': end
+[12:23:07.638] [bmv2] [D] [thread 6507] [36.0] [cxt 0] Pipeline 'ingress': start
+[12:23:07.638] [bmv2] [T] [thread 6507] [36.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:23:07.638] [bmv2] [T] [thread 6507] [36.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:23:07.638] [bmv2] [T] [thread 6507] [36.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:23:07.638] [bmv2] [T] [thread 6507] [36.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:23:07.638] [bmv2] [T] [thread 6507] [36.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:23:07.638] [bmv2] [D] [thread 6507] [36.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:23:07.638] [bmv2] [D] [thread 6507] [36.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:23:07.638] [bmv2] [D] [thread 6507] [36.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:23:07.638] [bmv2] [T] [thread 6507] [36.0] [cxt 0] Action MyIngress.drop
+[12:23:07.638] [bmv2] [T] [thread 6507] [36.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:23:07.638] [bmv2] [D] [thread 6507] [36.0] [cxt 0] Pipeline 'ingress': end
+[12:23:07.638] [bmv2] [D] [thread 6507] [36.0] [cxt 0] Egress port is 511
+[12:23:07.638] [bmv2] [D] [thread 6507] [36.0] [cxt 0] Dropping packet at the end of ingress
+[12:23:07.638] [bmv2] [D] [thread 6507] [37.0] [cxt 0] Processing packet received on port 8
+[12:23:07.638] [bmv2] [D] [thread 6507] [37.0] [cxt 0] Parser 'parser': start
+[12:23:07.638] [bmv2] [D] [thread 6507] [37.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:23:07.638] [bmv2] [D] [thread 6507] [37.0] [cxt 0] Extracting header 'ethernet'
+[12:23:07.638] [bmv2] [D] [thread 6507] [37.0] [cxt 0] Parser state 'start': key is 0800
+[12:23:07.638] [bmv2] [T] [thread 6507] [37.0] [cxt 0] Bytes parsed: 14
+[12:23:07.638] [bmv2] [D] [thread 6507] [37.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:23:07.639] [bmv2] [D] [thread 6507] [37.0] [cxt 0] Extracting header 'ipv4'
+[12:23:07.639] [bmv2] [D] [thread 6507] [37.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:23:07.639] [bmv2] [T] [thread 6507] [37.0] [cxt 0] Bytes parsed: 34
+[12:23:07.639] [bmv2] [D] [thread 6507] [37.0] [cxt 0] Parser 'parser': end
+[12:23:07.639] [bmv2] [D] [thread 6507] [37.0] [cxt 0] Pipeline 'ingress': start
+[12:23:07.639] [bmv2] [T] [thread 6507] [37.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:23:07.639] [bmv2] [T] [thread 6507] [37.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:23:07.639] [bmv2] [T] [thread 6507] [37.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:23:07.639] [bmv2] [T] [thread 6507] [37.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:23:07.639] [bmv2] [T] [thread 6507] [37.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:23:07.639] [bmv2] [T] [thread 6507] [37.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:23:07.639] [bmv2] [T] [thread 6507] [37.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:23:07.639] [bmv2] [T] [thread 6507] [37.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:23:07.639] [bmv2] [T] [thread 6507] [37.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:23:07.639] [bmv2] [T] [thread 6507] [37.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:23:07.639] [bmv2] [D] [thread 6507] [37.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:23:07.639] [bmv2] [D] [thread 6507] [37.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:23:07.639] [bmv2] [D] [thread 6507] [37.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:23:07.639] [bmv2] [T] [thread 6507] [37.0] [cxt 0] Action MyIngress.drop
+[12:23:07.639] [bmv2] [T] [thread 6507] [37.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:23:07.639] [bmv2] [D] [thread 6507] [37.0] [cxt 0] Pipeline 'ingress': end
+[12:23:07.639] [bmv2] [D] [thread 6507] [37.0] [cxt 0] Egress port is 511
+[12:23:07.639] [bmv2] [D] [thread 6507] [37.0] [cxt 0] Dropping packet at the end of ingress
+[12:23:08.638] [bmv2] [D] [thread 6507] [38.0] [cxt 0] Processing packet received on port 3
+[12:23:08.638] [bmv2] [D] [thread 6507] [38.0] [cxt 0] Parser 'parser': start
+[12:23:08.638] [bmv2] [D] [thread 6507] [38.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:23:08.638] [bmv2] [D] [thread 6507] [38.0] [cxt 0] Extracting header 'ethernet'
+[12:23:08.638] [bmv2] [D] [thread 6507] [38.0] [cxt 0] Parser state 'start': key is 0800
+[12:23:08.638] [bmv2] [T] [thread 6507] [38.0] [cxt 0] Bytes parsed: 14
+[12:23:08.638] [bmv2] [D] [thread 6507] [38.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:23:08.639] [bmv2] [D] [thread 6507] [38.0] [cxt 0] Extracting header 'ipv4'
+[12:23:08.639] [bmv2] [D] [thread 6507] [38.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:23:08.639] [bmv2] [T] [thread 6507] [38.0] [cxt 0] Bytes parsed: 34
+[12:23:08.639] [bmv2] [D] [thread 6507] [38.0] [cxt 0] Parser 'parser': end
+[12:23:08.639] [bmv2] [D] [thread 6507] [38.0] [cxt 0] Pipeline 'ingress': start
+[12:23:08.639] [bmv2] [T] [thread 6507] [38.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:23:08.639] [bmv2] [T] [thread 6507] [38.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:23:08.639] [bmv2] [T] [thread 6507] [38.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:23:08.639] [bmv2] [T] [thread 6507] [38.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:23:08.639] [bmv2] [T] [thread 6507] [38.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:23:08.639] [bmv2] [D] [thread 6507] [38.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:23:08.639] [bmv2] [D] [thread 6507] [38.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:23:08.639] [bmv2] [D] [thread 6507] [38.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:23:08.639] [bmv2] [T] [thread 6507] [38.0] [cxt 0] Action MyIngress.drop
+[12:23:08.639] [bmv2] [T] [thread 6507] [38.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:23:08.639] [bmv2] [D] [thread 6507] [38.0] [cxt 0] Pipeline 'ingress': end
+[12:23:08.639] [bmv2] [D] [thread 6507] [38.0] [cxt 0] Egress port is 511
+[12:23:08.639] [bmv2] [D] [thread 6507] [38.0] [cxt 0] Dropping packet at the end of ingress
+[12:23:08.639] [bmv2] [D] [thread 6507] [39.0] [cxt 0] Processing packet received on port 8
+[12:23:08.639] [bmv2] [D] [thread 6507] [39.0] [cxt 0] Parser 'parser': start
+[12:23:08.639] [bmv2] [D] [thread 6507] [39.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:23:08.639] [bmv2] [D] [thread 6507] [39.0] [cxt 0] Extracting header 'ethernet'
+[12:23:08.639] [bmv2] [D] [thread 6507] [39.0] [cxt 0] Parser state 'start': key is 0800
+[12:23:08.639] [bmv2] [T] [thread 6507] [39.0] [cxt 0] Bytes parsed: 14
+[12:23:08.639] [bmv2] [D] [thread 6507] [39.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:23:08.639] [bmv2] [D] [thread 6507] [39.0] [cxt 0] Extracting header 'ipv4'
+[12:23:08.639] [bmv2] [D] [thread 6507] [39.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:23:08.640] [bmv2] [T] [thread 6507] [39.0] [cxt 0] Bytes parsed: 34
+[12:23:08.640] [bmv2] [D] [thread 6507] [39.0] [cxt 0] Parser 'parser': end
+[12:23:08.640] [bmv2] [D] [thread 6507] [39.0] [cxt 0] Pipeline 'ingress': start
+[12:23:08.640] [bmv2] [T] [thread 6507] [39.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:23:08.640] [bmv2] [T] [thread 6507] [39.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:23:08.640] [bmv2] [T] [thread 6507] [39.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:23:08.640] [bmv2] [T] [thread 6507] [39.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:23:08.640] [bmv2] [T] [thread 6507] [39.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:23:08.640] [bmv2] [T] [thread 6507] [39.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:23:08.640] [bmv2] [T] [thread 6507] [39.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:23:08.640] [bmv2] [T] [thread 6507] [39.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:23:08.640] [bmv2] [T] [thread 6507] [39.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:23:08.640] [bmv2] [T] [thread 6507] [39.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:23:08.640] [bmv2] [D] [thread 6507] [39.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:23:08.640] [bmv2] [D] [thread 6507] [39.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:23:08.640] [bmv2] [D] [thread 6507] [39.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:23:08.640] [bmv2] [T] [thread 6507] [39.0] [cxt 0] Action MyIngress.drop
+[12:23:08.640] [bmv2] [T] [thread 6507] [39.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:23:08.640] [bmv2] [D] [thread 6507] [39.0] [cxt 0] Pipeline 'ingress': end
+[12:23:08.640] [bmv2] [D] [thread 6507] [39.0] [cxt 0] Egress port is 511
+[12:23:08.640] [bmv2] [D] [thread 6507] [39.0] [cxt 0] Dropping packet at the end of ingress
+[12:23:44.574] [bmv2] [D] [thread 6507] [40.0] [cxt 0] Processing packet received on port 3
+[12:23:44.574] [bmv2] [D] [thread 6507] [40.0] [cxt 0] Parser 'parser': start
+[12:23:44.574] [bmv2] [D] [thread 6507] [40.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:23:44.574] [bmv2] [D] [thread 6507] [40.0] [cxt 0] Extracting header 'ethernet'
+[12:23:44.574] [bmv2] [D] [thread 6507] [40.0] [cxt 0] Parser state 'start': key is 86dd
+[12:23:44.574] [bmv2] [T] [thread 6507] [40.0] [cxt 0] Bytes parsed: 14
+[12:23:44.575] [bmv2] [D] [thread 6507] [40.0] [cxt 0] Parser 'parser': end
+[12:23:44.575] [bmv2] [D] [thread 6507] [40.0] [cxt 0] Pipeline 'ingress': start
+[12:23:44.575] [bmv2] [T] [thread 6507] [40.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is false
+[12:23:44.575] [bmv2] [D] [thread 6507] [40.0] [cxt 0] Pipeline 'ingress': end
+[12:23:44.575] [bmv2] [D] [thread 6507] [40.0] [cxt 0] Egress port is 0
+[12:23:44.575] [bmv2] [D] [thread 6508] [40.0] [cxt 0] Pipeline 'egress': start
+[12:23:44.575] [bmv2] [D] [thread 6508] [40.0] [cxt 0] Pipeline 'egress': end
+[12:23:44.575] [bmv2] [D] [thread 6508] [40.0] [cxt 0] Deparser 'deparser': start
+[12:23:44.575] [bmv2] [T] [thread 6508] [40.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[12:23:44.575] [bmv2] [D] [thread 6508] [40.0] [cxt 0] Deparsing header 'ethernet'
+[12:23:44.575] [bmv2] [D] [thread 6508] [40.0] [cxt 0] Deparser 'deparser': end
+[12:23:44.575] [bmv2] [D] [thread 6512] [40.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[12:25:05.635] [bmv2] [D] [thread 6507] [41.0] [cxt 0] Processing packet received on port 3
+[12:25:05.635] [bmv2] [D] [thread 6507] [41.0] [cxt 0] Parser 'parser': start
+[12:25:05.635] [bmv2] [D] [thread 6507] [41.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:25:05.635] [bmv2] [D] [thread 6507] [41.0] [cxt 0] Extracting header 'ethernet'
+[12:25:05.636] [bmv2] [D] [thread 6507] [41.0] [cxt 0] Parser state 'start': key is 0800
+[12:25:05.636] [bmv2] [T] [thread 6507] [41.0] [cxt 0] Bytes parsed: 14
+[12:25:05.636] [bmv2] [D] [thread 6507] [41.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:25:05.636] [bmv2] [D] [thread 6507] [41.0] [cxt 0] Extracting header 'ipv4'
+[12:25:05.636] [bmv2] [D] [thread 6507] [41.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:25:05.636] [bmv2] [T] [thread 6507] [41.0] [cxt 0] Bytes parsed: 34
+[12:25:05.636] [bmv2] [D] [thread 6507] [41.0] [cxt 0] Parser 'parser': end
+[12:25:05.636] [bmv2] [D] [thread 6507] [41.0] [cxt 0] Pipeline 'ingress': start
+[12:25:05.636] [bmv2] [T] [thread 6507] [41.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:25:05.636] [bmv2] [T] [thread 6507] [41.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:25:05.636] [bmv2] [T] [thread 6507] [41.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:25:05.636] [bmv2] [T] [thread 6507] [41.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:25:05.636] [bmv2] [T] [thread 6507] [41.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:25:05.636] [bmv2] [D] [thread 6507] [41.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:25:05.636] [bmv2] [D] [thread 6507] [41.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:25:05.636] [bmv2] [D] [thread 6507] [41.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:25:05.636] [bmv2] [T] [thread 6507] [41.0] [cxt 0] Action MyIngress.drop
+[12:25:05.636] [bmv2] [T] [thread 6507] [41.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:25:05.636] [bmv2] [D] [thread 6507] [41.0] [cxt 0] Pipeline 'ingress': end
+[12:25:05.636] [bmv2] [D] [thread 6507] [41.0] [cxt 0] Egress port is 511
+[12:25:05.636] [bmv2] [D] [thread 6507] [41.0] [cxt 0] Dropping packet at the end of ingress
+[12:25:05.636] [bmv2] [D] [thread 6507] [42.0] [cxt 0] Processing packet received on port 8
+[12:25:05.636] [bmv2] [D] [thread 6507] [42.0] [cxt 0] Parser 'parser': start
+[12:25:05.636] [bmv2] [D] [thread 6507] [42.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:25:05.636] [bmv2] [D] [thread 6507] [42.0] [cxt 0] Extracting header 'ethernet'
+[12:25:05.636] [bmv2] [D] [thread 6507] [42.0] [cxt 0] Parser state 'start': key is 0800
+[12:25:05.637] [bmv2] [T] [thread 6507] [42.0] [cxt 0] Bytes parsed: 14
+[12:25:05.637] [bmv2] [D] [thread 6507] [42.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:25:05.637] [bmv2] [D] [thread 6507] [42.0] [cxt 0] Extracting header 'ipv4'
+[12:25:05.637] [bmv2] [D] [thread 6507] [42.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:25:05.637] [bmv2] [T] [thread 6507] [42.0] [cxt 0] Bytes parsed: 34
+[12:25:05.637] [bmv2] [D] [thread 6507] [42.0] [cxt 0] Parser 'parser': end
+[12:25:05.637] [bmv2] [D] [thread 6507] [42.0] [cxt 0] Pipeline 'ingress': start
+[12:25:05.637] [bmv2] [T] [thread 6507] [42.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:25:05.637] [bmv2] [T] [thread 6507] [42.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:25:05.637] [bmv2] [T] [thread 6507] [42.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:25:05.637] [bmv2] [T] [thread 6507] [42.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:25:05.637] [bmv2] [T] [thread 6507] [42.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:25:05.637] [bmv2] [T] [thread 6507] [42.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:25:05.637] [bmv2] [T] [thread 6507] [42.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:25:05.637] [bmv2] [T] [thread 6507] [42.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:25:05.637] [bmv2] [T] [thread 6507] [42.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:25:05.637] [bmv2] [T] [thread 6507] [42.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:25:05.637] [bmv2] [D] [thread 6507] [42.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:25:05.637] [bmv2] [D] [thread 6507] [42.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:25:05.637] [bmv2] [D] [thread 6507] [42.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:25:05.637] [bmv2] [T] [thread 6507] [42.0] [cxt 0] Action MyIngress.drop
+[12:25:05.637] [bmv2] [T] [thread 6507] [42.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:25:05.637] [bmv2] [D] [thread 6507] [42.0] [cxt 0] Pipeline 'ingress': end
+[12:25:05.637] [bmv2] [D] [thread 6507] [42.0] [cxt 0] Egress port is 511
+[12:25:05.637] [bmv2] [D] [thread 6507] [42.0] [cxt 0] Dropping packet at the end of ingress
+[12:25:06.494] [bmv2] [D] [thread 6507] [43.0] [cxt 0] Processing packet received on port 8
+[12:25:06.494] [bmv2] [D] [thread 6507] [43.0] [cxt 0] Parser 'parser': start
+[12:25:06.494] [bmv2] [D] [thread 6507] [43.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:25:06.494] [bmv2] [D] [thread 6507] [43.0] [cxt 0] Extracting header 'ethernet'
+[12:25:06.494] [bmv2] [D] [thread 6507] [43.0] [cxt 0] Parser state 'start': key is 86dd
+[12:25:06.494] [bmv2] [T] [thread 6507] [43.0] [cxt 0] Bytes parsed: 14
+[12:25:06.495] [bmv2] [D] [thread 6507] [43.0] [cxt 0] Parser 'parser': end
+[12:25:06.495] [bmv2] [D] [thread 6507] [43.0] [cxt 0] Pipeline 'ingress': start
+[12:25:06.495] [bmv2] [T] [thread 6507] [43.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is false
+[12:25:06.495] [bmv2] [D] [thread 6507] [43.0] [cxt 0] Pipeline 'ingress': end
+[12:25:06.495] [bmv2] [D] [thread 6507] [43.0] [cxt 0] Egress port is 0
+[12:25:06.495] [bmv2] [D] [thread 6508] [43.0] [cxt 0] Pipeline 'egress': start
+[12:25:06.495] [bmv2] [D] [thread 6508] [43.0] [cxt 0] Pipeline 'egress': end
+[12:25:06.495] [bmv2] [D] [thread 6508] [43.0] [cxt 0] Deparser 'deparser': start
+[12:25:06.495] [bmv2] [T] [thread 6508] [43.0] [cxt 0] Skipping checksum 'cksum' update because condition not met
+[12:25:06.495] [bmv2] [D] [thread 6508] [43.0] [cxt 0] Deparsing header 'ethernet'
+[12:25:06.495] [bmv2] [D] [thread 6508] [43.0] [cxt 0] Deparser 'deparser': end
+[12:25:06.495] [bmv2] [D] [thread 6512] [43.0] [cxt 0] Transmitting packet of size 70 out of port 0
+[12:25:06.636] [bmv2] [D] [thread 6507] [44.0] [cxt 0] Processing packet received on port 3
+[12:25:06.636] [bmv2] [D] [thread 6507] [44.0] [cxt 0] Parser 'parser': start
+[12:25:06.637] [bmv2] [D] [thread 6507] [44.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:25:06.637] [bmv2] [D] [thread 6507] [44.0] [cxt 0] Extracting header 'ethernet'
+[12:25:06.637] [bmv2] [D] [thread 6507] [44.0] [cxt 0] Parser state 'start': key is 0800
+[12:25:06.637] [bmv2] [T] [thread 6507] [44.0] [cxt 0] Bytes parsed: 14
+[12:25:06.637] [bmv2] [D] [thread 6507] [44.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:25:06.637] [bmv2] [D] [thread 6507] [44.0] [cxt 0] Extracting header 'ipv4'
+[12:25:06.637] [bmv2] [D] [thread 6507] [44.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:25:06.637] [bmv2] [T] [thread 6507] [44.0] [cxt 0] Bytes parsed: 34
+[12:25:06.637] [bmv2] [D] [thread 6507] [44.0] [cxt 0] Parser 'parser': end
+[12:25:06.637] [bmv2] [D] [thread 6507] [44.0] [cxt 0] Pipeline 'ingress': start
+[12:25:06.637] [bmv2] [T] [thread 6507] [44.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:25:06.637] [bmv2] [T] [thread 6507] [44.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:25:06.637] [bmv2] [T] [thread 6507] [44.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:25:06.637] [bmv2] [T] [thread 6507] [44.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:25:06.637] [bmv2] [T] [thread 6507] [44.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:25:06.637] [bmv2] [D] [thread 6507] [44.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:25:06.637] [bmv2] [D] [thread 6507] [44.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:25:06.637] [bmv2] [D] [thread 6507] [44.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:25:06.637] [bmv2] [T] [thread 6507] [44.0] [cxt 0] Action MyIngress.drop
+[12:25:06.637] [bmv2] [T] [thread 6507] [44.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:25:06.637] [bmv2] [D] [thread 6507] [44.0] [cxt 0] Pipeline 'ingress': end
+[12:25:06.637] [bmv2] [D] [thread 6507] [44.0] [cxt 0] Egress port is 511
+[12:25:06.637] [bmv2] [D] [thread 6507] [44.0] [cxt 0] Dropping packet at the end of ingress
+[12:25:06.637] [bmv2] [D] [thread 6507] [45.0] [cxt 0] Processing packet received on port 8
+[12:25:06.637] [bmv2] [D] [thread 6507] [45.0] [cxt 0] Parser 'parser': start
+[12:25:06.637] [bmv2] [D] [thread 6507] [45.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:25:06.637] [bmv2] [D] [thread 6507] [45.0] [cxt 0] Extracting header 'ethernet'
+[12:25:06.638] [bmv2] [D] [thread 6507] [45.0] [cxt 0] Parser state 'start': key is 0800
+[12:25:06.638] [bmv2] [T] [thread 6507] [45.0] [cxt 0] Bytes parsed: 14
+[12:25:06.638] [bmv2] [D] [thread 6507] [45.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:25:06.638] [bmv2] [D] [thread 6507] [45.0] [cxt 0] Extracting header 'ipv4'
+[12:25:06.638] [bmv2] [D] [thread 6507] [45.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:25:06.638] [bmv2] [T] [thread 6507] [45.0] [cxt 0] Bytes parsed: 34
+[12:25:06.638] [bmv2] [D] [thread 6507] [45.0] [cxt 0] Parser 'parser': end
+[12:25:06.638] [bmv2] [D] [thread 6507] [45.0] [cxt 0] Pipeline 'ingress': start
+[12:25:06.638] [bmv2] [T] [thread 6507] [45.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:25:06.638] [bmv2] [T] [thread 6507] [45.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:25:06.638] [bmv2] [T] [thread 6507] [45.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:25:06.638] [bmv2] [T] [thread 6507] [45.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:25:06.638] [bmv2] [T] [thread 6507] [45.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:25:06.638] [bmv2] [T] [thread 6507] [45.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:25:06.638] [bmv2] [T] [thread 6507] [45.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:25:06.638] [bmv2] [T] [thread 6507] [45.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:25:06.638] [bmv2] [T] [thread 6507] [45.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:25:06.638] [bmv2] [T] [thread 6507] [45.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:25:06.638] [bmv2] [D] [thread 6507] [45.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:25:06.638] [bmv2] [D] [thread 6507] [45.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:25:06.638] [bmv2] [D] [thread 6507] [45.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:25:06.638] [bmv2] [T] [thread 6507] [45.0] [cxt 0] Action MyIngress.drop
+[12:25:06.638] [bmv2] [T] [thread 6507] [45.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:25:06.638] [bmv2] [D] [thread 6507] [45.0] [cxt 0] Pipeline 'ingress': end
+[12:25:06.638] [bmv2] [D] [thread 6507] [45.0] [cxt 0] Egress port is 511
+[12:25:06.638] [bmv2] [D] [thread 6507] [45.0] [cxt 0] Dropping packet at the end of ingress
+[12:25:07.637] [bmv2] [D] [thread 6507] [46.0] [cxt 0] Processing packet received on port 3
+[12:25:07.637] [bmv2] [D] [thread 6507] [46.0] [cxt 0] Parser 'parser': start
+[12:25:07.637] [bmv2] [D] [thread 6507] [46.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:25:07.637] [bmv2] [D] [thread 6507] [46.0] [cxt 0] Extracting header 'ethernet'
+[12:25:07.637] [bmv2] [D] [thread 6507] [46.0] [cxt 0] Parser state 'start': key is 0800
+[12:25:07.637] [bmv2] [T] [thread 6507] [46.0] [cxt 0] Bytes parsed: 14
+[12:25:07.637] [bmv2] [D] [thread 6507] [46.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:25:07.637] [bmv2] [D] [thread 6507] [46.0] [cxt 0] Extracting header 'ipv4'
+[12:25:07.637] [bmv2] [D] [thread 6507] [46.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:25:07.637] [bmv2] [T] [thread 6507] [46.0] [cxt 0] Bytes parsed: 34
+[12:25:07.637] [bmv2] [D] [thread 6507] [46.0] [cxt 0] Parser 'parser': end
+[12:25:07.637] [bmv2] [D] [thread 6507] [46.0] [cxt 0] Pipeline 'ingress': start
+[12:25:07.637] [bmv2] [T] [thread 6507] [46.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:25:07.637] [bmv2] [T] [thread 6507] [46.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:25:07.637] [bmv2] [T] [thread 6507] [46.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:25:07.637] [bmv2] [T] [thread 6507] [46.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:25:07.637] [bmv2] [T] [thread 6507] [46.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:25:07.637] [bmv2] [D] [thread 6507] [46.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:25:07.638] [bmv2] [D] [thread 6507] [46.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:25:07.638] [bmv2] [D] [thread 6507] [46.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:25:07.638] [bmv2] [T] [thread 6507] [46.0] [cxt 0] Action MyIngress.drop
+[12:25:07.638] [bmv2] [T] [thread 6507] [46.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:25:07.638] [bmv2] [D] [thread 6507] [46.0] [cxt 0] Pipeline 'ingress': end
+[12:25:07.638] [bmv2] [D] [thread 6507] [46.0] [cxt 0] Egress port is 511
+[12:25:07.638] [bmv2] [D] [thread 6507] [46.0] [cxt 0] Dropping packet at the end of ingress
+[12:25:07.638] [bmv2] [D] [thread 6507] [47.0] [cxt 0] Processing packet received on port 8
+[12:25:07.638] [bmv2] [D] [thread 6507] [47.0] [cxt 0] Parser 'parser': start
+[12:25:07.638] [bmv2] [D] [thread 6507] [47.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:25:07.638] [bmv2] [D] [thread 6507] [47.0] [cxt 0] Extracting header 'ethernet'
+[12:25:07.638] [bmv2] [D] [thread 6507] [47.0] [cxt 0] Parser state 'start': key is 0800
+[12:25:07.638] [bmv2] [T] [thread 6507] [47.0] [cxt 0] Bytes parsed: 14
+[12:25:07.638] [bmv2] [D] [thread 6507] [47.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:25:07.638] [bmv2] [D] [thread 6507] [47.0] [cxt 0] Extracting header 'ipv4'
+[12:25:07.638] [bmv2] [D] [thread 6507] [47.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:25:07.638] [bmv2] [T] [thread 6507] [47.0] [cxt 0] Bytes parsed: 34
+[12:25:07.638] [bmv2] [D] [thread 6507] [47.0] [cxt 0] Parser 'parser': end
+[12:25:07.638] [bmv2] [D] [thread 6507] [47.0] [cxt 0] Pipeline 'ingress': start
+[12:25:07.638] [bmv2] [T] [thread 6507] [47.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:25:07.638] [bmv2] [T] [thread 6507] [47.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:25:07.638] [bmv2] [T] [thread 6507] [47.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:25:07.638] [bmv2] [T] [thread 6507] [47.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:25:07.638] [bmv2] [T] [thread 6507] [47.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:25:07.638] [bmv2] [T] [thread 6507] [47.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:25:07.638] [bmv2] [T] [thread 6507] [47.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:25:07.638] [bmv2] [T] [thread 6507] [47.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:25:07.638] [bmv2] [T] [thread 6507] [47.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:25:07.638] [bmv2] [T] [thread 6507] [47.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:25:07.638] [bmv2] [D] [thread 6507] [47.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:25:07.639] [bmv2] [D] [thread 6507] [47.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:25:07.639] [bmv2] [D] [thread 6507] [47.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:25:07.639] [bmv2] [T] [thread 6507] [47.0] [cxt 0] Action MyIngress.drop
+[12:25:07.639] [bmv2] [T] [thread 6507] [47.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:25:07.639] [bmv2] [D] [thread 6507] [47.0] [cxt 0] Pipeline 'ingress': end
+[12:25:07.639] [bmv2] [D] [thread 6507] [47.0] [cxt 0] Egress port is 511
+[12:25:07.639] [bmv2] [D] [thread 6507] [47.0] [cxt 0] Dropping packet at the end of ingress
+[12:25:08.638] [bmv2] [D] [thread 6507] [48.0] [cxt 0] Processing packet received on port 3
+[12:25:08.638] [bmv2] [D] [thread 6507] [48.0] [cxt 0] Parser 'parser': start
+[12:25:08.638] [bmv2] [D] [thread 6507] [48.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:25:08.638] [bmv2] [D] [thread 6507] [48.0] [cxt 0] Extracting header 'ethernet'
+[12:25:08.638] [bmv2] [D] [thread 6507] [48.0] [cxt 0] Parser state 'start': key is 0800
+[12:25:08.638] [bmv2] [T] [thread 6507] [48.0] [cxt 0] Bytes parsed: 14
+[12:25:08.638] [bmv2] [D] [thread 6507] [48.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:25:08.638] [bmv2] [D] [thread 6507] [48.0] [cxt 0] Extracting header 'ipv4'
+[12:25:08.638] [bmv2] [D] [thread 6507] [48.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:25:08.638] [bmv2] [T] [thread 6507] [48.0] [cxt 0] Bytes parsed: 34
+[12:25:08.638] [bmv2] [D] [thread 6507] [48.0] [cxt 0] Parser 'parser': end
+[12:25:08.638] [bmv2] [D] [thread 6507] [48.0] [cxt 0] Pipeline 'ingress': start
+[12:25:08.638] [bmv2] [T] [thread 6507] [48.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:25:08.638] [bmv2] [T] [thread 6507] [48.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:25:08.638] [bmv2] [T] [thread 6507] [48.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:25:08.638] [bmv2] [T] [thread 6507] [48.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:25:08.638] [bmv2] [T] [thread 6507] [48.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:25:08.639] [bmv2] [D] [thread 6507] [48.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:25:08.639] [bmv2] [D] [thread 6507] [48.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:25:08.639] [bmv2] [D] [thread 6507] [48.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:25:08.639] [bmv2] [T] [thread 6507] [48.0] [cxt 0] Action MyIngress.drop
+[12:25:08.639] [bmv2] [T] [thread 6507] [48.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:25:08.639] [bmv2] [D] [thread 6507] [48.0] [cxt 0] Pipeline 'ingress': end
+[12:25:08.639] [bmv2] [D] [thread 6507] [48.0] [cxt 0] Egress port is 511
+[12:25:08.639] [bmv2] [D] [thread 6507] [48.0] [cxt 0] Dropping packet at the end of ingress
+[12:25:08.639] [bmv2] [D] [thread 6507] [49.0] [cxt 0] Processing packet received on port 8
+[12:25:08.639] [bmv2] [D] [thread 6507] [49.0] [cxt 0] Parser 'parser': start
+[12:25:08.639] [bmv2] [D] [thread 6507] [49.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:25:08.639] [bmv2] [D] [thread 6507] [49.0] [cxt 0] Extracting header 'ethernet'
+[12:25:08.639] [bmv2] [D] [thread 6507] [49.0] [cxt 0] Parser state 'start': key is 0800
+[12:25:08.639] [bmv2] [T] [thread 6507] [49.0] [cxt 0] Bytes parsed: 14
+[12:25:08.639] [bmv2] [D] [thread 6507] [49.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:25:08.639] [bmv2] [D] [thread 6507] [49.0] [cxt 0] Extracting header 'ipv4'
+[12:25:08.639] [bmv2] [D] [thread 6507] [49.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:25:08.639] [bmv2] [T] [thread 6507] [49.0] [cxt 0] Bytes parsed: 34
+[12:25:08.639] [bmv2] [D] [thread 6507] [49.0] [cxt 0] Parser 'parser': end
+[12:25:08.639] [bmv2] [D] [thread 6507] [49.0] [cxt 0] Pipeline 'ingress': start
+[12:25:08.639] [bmv2] [T] [thread 6507] [49.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:25:08.639] [bmv2] [T] [thread 6507] [49.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:25:08.639] [bmv2] [T] [thread 6507] [49.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:25:08.639] [bmv2] [T] [thread 6507] [49.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:25:08.639] [bmv2] [T] [thread 6507] [49.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:25:08.639] [bmv2] [T] [thread 6507] [49.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:25:08.639] [bmv2] [T] [thread 6507] [49.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:25:08.639] [bmv2] [T] [thread 6507] [49.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:25:08.640] [bmv2] [T] [thread 6507] [49.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:25:08.640] [bmv2] [T] [thread 6507] [49.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:25:08.640] [bmv2] [D] [thread 6507] [49.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:25:08.640] [bmv2] [D] [thread 6507] [49.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:25:08.640] [bmv2] [D] [thread 6507] [49.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:25:08.640] [bmv2] [T] [thread 6507] [49.0] [cxt 0] Action MyIngress.drop
+[12:25:08.640] [bmv2] [T] [thread 6507] [49.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:25:08.640] [bmv2] [D] [thread 6507] [49.0] [cxt 0] Pipeline 'ingress': end
+[12:25:08.640] [bmv2] [D] [thread 6507] [49.0] [cxt 0] Egress port is 511
+[12:25:08.640] [bmv2] [D] [thread 6507] [49.0] [cxt 0] Dropping packet at the end of ingress
+[12:27:05.635] [bmv2] [D] [thread 6507] [50.0] [cxt 0] Processing packet received on port 3
+[12:27:05.635] [bmv2] [D] [thread 6507] [50.0] [cxt 0] Parser 'parser': start
+[12:27:05.635] [bmv2] [D] [thread 6507] [50.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:27:05.635] [bmv2] [D] [thread 6507] [50.0] [cxt 0] Extracting header 'ethernet'
+[12:27:05.636] [bmv2] [D] [thread 6507] [50.0] [cxt 0] Parser state 'start': key is 0800
+[12:27:05.636] [bmv2] [T] [thread 6507] [50.0] [cxt 0] Bytes parsed: 14
+[12:27:05.636] [bmv2] [D] [thread 6507] [50.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:27:05.636] [bmv2] [D] [thread 6507] [50.0] [cxt 0] Extracting header 'ipv4'
+[12:27:05.636] [bmv2] [D] [thread 6507] [50.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:27:05.636] [bmv2] [T] [thread 6507] [50.0] [cxt 0] Bytes parsed: 34
+[12:27:05.636] [bmv2] [D] [thread 6507] [50.0] [cxt 0] Parser 'parser': end
+[12:27:05.636] [bmv2] [D] [thread 6507] [50.0] [cxt 0] Pipeline 'ingress': start
+[12:27:05.636] [bmv2] [T] [thread 6507] [50.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:27:05.636] [bmv2] [T] [thread 6507] [50.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:27:05.636] [bmv2] [T] [thread 6507] [50.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:27:05.636] [bmv2] [T] [thread 6507] [50.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:27:05.636] [bmv2] [T] [thread 6507] [50.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:27:05.636] [bmv2] [D] [thread 6507] [50.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:27:05.636] [bmv2] [D] [thread 6507] [50.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:27:05.636] [bmv2] [D] [thread 6507] [50.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:27:05.636] [bmv2] [T] [thread 6507] [50.0] [cxt 0] Action MyIngress.drop
+[12:27:05.636] [bmv2] [T] [thread 6507] [50.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:27:05.636] [bmv2] [D] [thread 6507] [50.0] [cxt 0] Pipeline 'ingress': end
+[12:27:05.636] [bmv2] [D] [thread 6507] [50.0] [cxt 0] Egress port is 511
+[12:27:05.636] [bmv2] [D] [thread 6507] [50.0] [cxt 0] Dropping packet at the end of ingress
+[12:27:05.636] [bmv2] [D] [thread 6507] [51.0] [cxt 0] Processing packet received on port 8
+[12:27:05.636] [bmv2] [D] [thread 6507] [51.0] [cxt 0] Parser 'parser': start
+[12:27:05.636] [bmv2] [D] [thread 6507] [51.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:27:05.636] [bmv2] [D] [thread 6507] [51.0] [cxt 0] Extracting header 'ethernet'
+[12:27:05.636] [bmv2] [D] [thread 6507] [51.0] [cxt 0] Parser state 'start': key is 0800
+[12:27:05.637] [bmv2] [T] [thread 6507] [51.0] [cxt 0] Bytes parsed: 14
+[12:27:05.637] [bmv2] [D] [thread 6507] [51.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:27:05.637] [bmv2] [D] [thread 6507] [51.0] [cxt 0] Extracting header 'ipv4'
+[12:27:05.637] [bmv2] [D] [thread 6507] [51.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:27:05.637] [bmv2] [T] [thread 6507] [51.0] [cxt 0] Bytes parsed: 34
+[12:27:05.637] [bmv2] [D] [thread 6507] [51.0] [cxt 0] Parser 'parser': end
+[12:27:05.637] [bmv2] [D] [thread 6507] [51.0] [cxt 0] Pipeline 'ingress': start
+[12:27:05.637] [bmv2] [T] [thread 6507] [51.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:27:05.637] [bmv2] [T] [thread 6507] [51.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:27:05.637] [bmv2] [T] [thread 6507] [51.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:27:05.637] [bmv2] [T] [thread 6507] [51.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:27:05.637] [bmv2] [T] [thread 6507] [51.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:27:05.637] [bmv2] [T] [thread 6507] [51.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:27:05.637] [bmv2] [T] [thread 6507] [51.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:27:05.637] [bmv2] [T] [thread 6507] [51.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:27:05.637] [bmv2] [T] [thread 6507] [51.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:27:05.637] [bmv2] [T] [thread 6507] [51.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:27:05.637] [bmv2] [D] [thread 6507] [51.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:27:05.637] [bmv2] [D] [thread 6507] [51.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:27:05.637] [bmv2] [D] [thread 6507] [51.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:27:05.637] [bmv2] [T] [thread 6507] [51.0] [cxt 0] Action MyIngress.drop
+[12:27:05.637] [bmv2] [T] [thread 6507] [51.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:27:05.637] [bmv2] [D] [thread 6507] [51.0] [cxt 0] Pipeline 'ingress': end
+[12:27:05.637] [bmv2] [D] [thread 6507] [51.0] [cxt 0] Egress port is 511
+[12:27:05.637] [bmv2] [D] [thread 6507] [51.0] [cxt 0] Dropping packet at the end of ingress
+[12:27:06.637] [bmv2] [D] [thread 6507] [52.0] [cxt 0] Processing packet received on port 3
+[12:27:06.637] [bmv2] [D] [thread 6507] [52.0] [cxt 0] Parser 'parser': start
+[12:27:06.637] [bmv2] [D] [thread 6507] [52.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:27:06.637] [bmv2] [D] [thread 6507] [52.0] [cxt 0] Extracting header 'ethernet'
+[12:27:06.637] [bmv2] [D] [thread 6507] [52.0] [cxt 0] Parser state 'start': key is 0800
+[12:27:06.637] [bmv2] [T] [thread 6507] [52.0] [cxt 0] Bytes parsed: 14
+[12:27:06.637] [bmv2] [D] [thread 6507] [52.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:27:06.637] [bmv2] [D] [thread 6507] [52.0] [cxt 0] Extracting header 'ipv4'
+[12:27:06.637] [bmv2] [D] [thread 6507] [52.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:27:06.637] [bmv2] [T] [thread 6507] [52.0] [cxt 0] Bytes parsed: 34
+[12:27:06.637] [bmv2] [D] [thread 6507] [52.0] [cxt 0] Parser 'parser': end
+[12:27:06.637] [bmv2] [D] [thread 6507] [52.0] [cxt 0] Pipeline 'ingress': start
+[12:27:06.637] [bmv2] [T] [thread 6507] [52.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:27:06.637] [bmv2] [T] [thread 6507] [52.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:27:06.637] [bmv2] [T] [thread 6507] [52.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:27:06.637] [bmv2] [T] [thread 6507] [52.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:27:06.637] [bmv2] [T] [thread 6507] [52.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:27:06.638] [bmv2] [D] [thread 6507] [52.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:27:06.638] [bmv2] [D] [thread 6507] [52.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:27:06.638] [bmv2] [D] [thread 6507] [52.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:27:06.638] [bmv2] [T] [thread 6507] [52.0] [cxt 0] Action MyIngress.drop
+[12:27:06.638] [bmv2] [T] [thread 6507] [52.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:27:06.638] [bmv2] [D] [thread 6507] [52.0] [cxt 0] Pipeline 'ingress': end
+[12:27:06.638] [bmv2] [D] [thread 6507] [52.0] [cxt 0] Egress port is 511
+[12:27:06.638] [bmv2] [D] [thread 6507] [52.0] [cxt 0] Dropping packet at the end of ingress
+[12:27:06.638] [bmv2] [D] [thread 6507] [53.0] [cxt 0] Processing packet received on port 8
+[12:27:06.638] [bmv2] [D] [thread 6507] [53.0] [cxt 0] Parser 'parser': start
+[12:27:06.638] [bmv2] [D] [thread 6507] [53.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:27:06.638] [bmv2] [D] [thread 6507] [53.0] [cxt 0] Extracting header 'ethernet'
+[12:27:06.638] [bmv2] [D] [thread 6507] [53.0] [cxt 0] Parser state 'start': key is 0800
+[12:27:06.638] [bmv2] [T] [thread 6507] [53.0] [cxt 0] Bytes parsed: 14
+[12:27:06.638] [bmv2] [D] [thread 6507] [53.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:27:06.638] [bmv2] [D] [thread 6507] [53.0] [cxt 0] Extracting header 'ipv4'
+[12:27:06.638] [bmv2] [D] [thread 6507] [53.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:27:06.638] [bmv2] [T] [thread 6507] [53.0] [cxt 0] Bytes parsed: 34
+[12:27:06.638] [bmv2] [D] [thread 6507] [53.0] [cxt 0] Parser 'parser': end
+[12:27:06.638] [bmv2] [D] [thread 6507] [53.0] [cxt 0] Pipeline 'ingress': start
+[12:27:06.638] [bmv2] [T] [thread 6507] [53.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:27:06.638] [bmv2] [T] [thread 6507] [53.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:27:06.638] [bmv2] [T] [thread 6507] [53.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:27:06.638] [bmv2] [T] [thread 6507] [53.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:27:06.638] [bmv2] [T] [thread 6507] [53.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:27:06.638] [bmv2] [T] [thread 6507] [53.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:27:06.638] [bmv2] [T] [thread 6507] [53.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:27:06.638] [bmv2] [T] [thread 6507] [53.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:27:06.638] [bmv2] [T] [thread 6507] [53.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:27:06.638] [bmv2] [T] [thread 6507] [53.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:27:06.638] [bmv2] [D] [thread 6507] [53.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:27:06.638] [bmv2] [D] [thread 6507] [53.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:27:06.639] [bmv2] [D] [thread 6507] [53.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:27:06.639] [bmv2] [T] [thread 6507] [53.0] [cxt 0] Action MyIngress.drop
+[12:27:06.639] [bmv2] [T] [thread 6507] [53.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:27:06.639] [bmv2] [D] [thread 6507] [53.0] [cxt 0] Pipeline 'ingress': end
+[12:27:06.639] [bmv2] [D] [thread 6507] [53.0] [cxt 0] Egress port is 511
+[12:27:06.639] [bmv2] [D] [thread 6507] [53.0] [cxt 0] Dropping packet at the end of ingress
+[12:27:07.638] [bmv2] [D] [thread 6507] [54.0] [cxt 0] Processing packet received on port 3
+[12:27:07.639] [bmv2] [D] [thread 6507] [54.0] [cxt 0] Parser 'parser': start
+[12:27:07.639] [bmv2] [D] [thread 6507] [54.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:27:07.639] [bmv2] [D] [thread 6507] [54.0] [cxt 0] Extracting header 'ethernet'
+[12:27:07.639] [bmv2] [D] [thread 6507] [54.0] [cxt 0] Parser state 'start': key is 0800
+[12:27:07.639] [bmv2] [T] [thread 6507] [54.0] [cxt 0] Bytes parsed: 14
+[12:27:07.639] [bmv2] [D] [thread 6507] [54.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:27:07.639] [bmv2] [D] [thread 6507] [54.0] [cxt 0] Extracting header 'ipv4'
+[12:27:07.639] [bmv2] [D] [thread 6507] [54.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:27:07.639] [bmv2] [T] [thread 6507] [54.0] [cxt 0] Bytes parsed: 34
+[12:27:07.639] [bmv2] [D] [thread 6507] [54.0] [cxt 0] Parser 'parser': end
+[12:27:07.639] [bmv2] [D] [thread 6507] [54.0] [cxt 0] Pipeline 'ingress': start
+[12:27:07.639] [bmv2] [T] [thread 6507] [54.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:27:07.639] [bmv2] [T] [thread 6507] [54.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:27:07.639] [bmv2] [T] [thread 6507] [54.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:27:07.639] [bmv2] [T] [thread 6507] [54.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:27:07.639] [bmv2] [T] [thread 6507] [54.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:27:07.639] [bmv2] [D] [thread 6507] [54.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:27:07.639] [bmv2] [D] [thread 6507] [54.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:27:07.639] [bmv2] [D] [thread 6507] [54.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:27:07.639] [bmv2] [T] [thread 6507] [54.0] [cxt 0] Action MyIngress.drop
+[12:27:07.639] [bmv2] [T] [thread 6507] [54.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:27:07.639] [bmv2] [D] [thread 6507] [54.0] [cxt 0] Pipeline 'ingress': end
+[12:27:07.639] [bmv2] [D] [thread 6507] [54.0] [cxt 0] Egress port is 511
+[12:27:07.639] [bmv2] [D] [thread 6507] [54.0] [cxt 0] Dropping packet at the end of ingress
+[12:27:07.639] [bmv2] [D] [thread 6507] [55.0] [cxt 0] Processing packet received on port 8
+[12:27:07.639] [bmv2] [D] [thread 6507] [55.0] [cxt 0] Parser 'parser': start
+[12:27:07.639] [bmv2] [D] [thread 6507] [55.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:27:07.640] [bmv2] [D] [thread 6507] [55.0] [cxt 0] Extracting header 'ethernet'
+[12:27:07.640] [bmv2] [D] [thread 6507] [55.0] [cxt 0] Parser state 'start': key is 0800
+[12:27:07.640] [bmv2] [T] [thread 6507] [55.0] [cxt 0] Bytes parsed: 14
+[12:27:07.640] [bmv2] [D] [thread 6507] [55.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:27:07.640] [bmv2] [D] [thread 6507] [55.0] [cxt 0] Extracting header 'ipv4'
+[12:27:07.640] [bmv2] [D] [thread 6507] [55.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:27:07.640] [bmv2] [T] [thread 6507] [55.0] [cxt 0] Bytes parsed: 34
+[12:27:07.640] [bmv2] [D] [thread 6507] [55.0] [cxt 0] Parser 'parser': end
+[12:27:07.640] [bmv2] [D] [thread 6507] [55.0] [cxt 0] Pipeline 'ingress': start
+[12:27:07.640] [bmv2] [T] [thread 6507] [55.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:27:07.640] [bmv2] [T] [thread 6507] [55.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:27:07.640] [bmv2] [T] [thread 6507] [55.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:27:07.640] [bmv2] [T] [thread 6507] [55.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:27:07.640] [bmv2] [T] [thread 6507] [55.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:27:07.640] [bmv2] [T] [thread 6507] [55.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:27:07.640] [bmv2] [T] [thread 6507] [55.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:27:07.640] [bmv2] [T] [thread 6507] [55.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:27:07.640] [bmv2] [T] [thread 6507] [55.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:27:07.640] [bmv2] [T] [thread 6507] [55.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:27:07.640] [bmv2] [D] [thread 6507] [55.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:27:07.640] [bmv2] [D] [thread 6507] [55.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:27:07.640] [bmv2] [D] [thread 6507] [55.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:27:07.640] [bmv2] [T] [thread 6507] [55.0] [cxt 0] Action MyIngress.drop
+[12:27:07.640] [bmv2] [T] [thread 6507] [55.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:27:07.640] [bmv2] [D] [thread 6507] [55.0] [cxt 0] Pipeline 'ingress': end
+[12:27:07.640] [bmv2] [D] [thread 6507] [55.0] [cxt 0] Egress port is 511
+[12:27:07.640] [bmv2] [D] [thread 6507] [55.0] [cxt 0] Dropping packet at the end of ingress
+[12:27:08.640] [bmv2] [D] [thread 6507] [56.0] [cxt 0] Processing packet received on port 3
+[12:27:08.640] [bmv2] [D] [thread 6507] [56.0] [cxt 0] Parser 'parser': start
+[12:27:08.640] [bmv2] [D] [thread 6507] [56.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:27:08.640] [bmv2] [D] [thread 6507] [56.0] [cxt 0] Extracting header 'ethernet'
+[12:27:08.640] [bmv2] [D] [thread 6507] [56.0] [cxt 0] Parser state 'start': key is 0800
+[12:27:08.640] [bmv2] [T] [thread 6507] [56.0] [cxt 0] Bytes parsed: 14
+[12:27:08.640] [bmv2] [D] [thread 6507] [56.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:27:08.640] [bmv2] [D] [thread 6507] [56.0] [cxt 0] Extracting header 'ipv4'
+[12:27:08.640] [bmv2] [D] [thread 6507] [56.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:27:08.640] [bmv2] [T] [thread 6507] [56.0] [cxt 0] Bytes parsed: 34
+[12:27:08.640] [bmv2] [D] [thread 6507] [56.0] [cxt 0] Parser 'parser': end
+[12:27:08.640] [bmv2] [D] [thread 6507] [56.0] [cxt 0] Pipeline 'ingress': start
+[12:27:08.640] [bmv2] [T] [thread 6507] [56.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:27:08.640] [bmv2] [T] [thread 6507] [56.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:27:08.640] [bmv2] [T] [thread 6507] [56.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:27:08.640] [bmv2] [T] [thread 6507] [56.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is true
+[12:27:08.640] [bmv2] [T] [thread 6507] [56.0] [cxt 0] Applying table 'MyIngress.p1_ingress_port_mapping'
+[12:27:08.640] [bmv2] [D] [thread 6507] [56.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:27:08.640] [bmv2] [D] [thread 6507] [56.0] [cxt 0] Table 'MyIngress.p1_ingress_port_mapping': miss
+[12:27:08.640] [bmv2] [D] [thread 6507] [56.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:27:08.640] [bmv2] [T] [thread 6507] [56.0] [cxt 0] Action MyIngress.drop
+[12:27:08.640] [bmv2] [T] [thread 6507] [56.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:27:08.640] [bmv2] [D] [thread 6507] [56.0] [cxt 0] Pipeline 'ingress': end
+[12:27:08.640] [bmv2] [D] [thread 6507] [56.0] [cxt 0] Egress port is 511
+[12:27:08.640] [bmv2] [D] [thread 6507] [56.0] [cxt 0] Dropping packet at the end of ingress
+[12:27:08.640] [bmv2] [D] [thread 6507] [57.0] [cxt 0] Processing packet received on port 8
+[12:27:08.640] [bmv2] [D] [thread 6507] [57.0] [cxt 0] Parser 'parser': start
+[12:27:08.640] [bmv2] [D] [thread 6507] [57.0] [cxt 0] Parser 'parser' entering state 'start'
+[12:27:08.640] [bmv2] [D] [thread 6507] [57.0] [cxt 0] Extracting header 'ethernet'
+[12:27:08.640] [bmv2] [D] [thread 6507] [57.0] [cxt 0] Parser state 'start': key is 0800
+[12:27:08.640] [bmv2] [T] [thread 6507] [57.0] [cxt 0] Bytes parsed: 14
+[12:27:08.640] [bmv2] [D] [thread 6507] [57.0] [cxt 0] Parser 'parser' entering state 'parse_ipv4'
+[12:27:08.640] [bmv2] [D] [thread 6507] [57.0] [cxt 0] Extracting header 'ipv4'
+[12:27:08.640] [bmv2] [D] [thread 6507] [57.0] [cxt 0] Parser state 'parse_ipv4' has no switch, going to default next state
+[12:27:08.640] [bmv2] [T] [thread 6507] [57.0] [cxt 0] Bytes parsed: 34
+[12:27:08.640] [bmv2] [D] [thread 6507] [57.0] [cxt 0] Parser 'parser': end
+[12:27:08.640] [bmv2] [D] [thread 6507] [57.0] [cxt 0] Pipeline 'ingress': start
+[12:27:08.640] [bmv2] [T] [thread 6507] [57.0] [cxt 0] p4-detem-impl/detem.p4(198) Condition "hdr.ipv4.isValid()" (node_2) is true
+[12:27:08.640] [bmv2] [T] [thread 6507] [57.0] [cxt 0] p4-detem-impl/detem.p4(199) Condition "standard_metadata.ingress_port == 1" (node_3) is false
+[12:27:08.640] [bmv2] [T] [thread 6507] [57.0] [cxt 0] p4-detem-impl/detem.p4(202) Condition "standard_metadata.ingress_port == 2" (node_5) is false
+[12:27:08.640] [bmv2] [T] [thread 6507] [57.0] [cxt 0] p4-detem-impl/detem.p4(205) Condition "standard_metadata.ingress_port == 3" (node_7) is false
+[12:27:08.640] [bmv2] [T] [thread 6507] [57.0] [cxt 0] p4-detem-impl/detem.p4(208) Condition "standard_metadata.ingress_port == 4" (node_9) is false
+[12:27:08.640] [bmv2] [T] [thread 6507] [57.0] [cxt 0] p4-detem-impl/detem.p4(211) Condition "standard_metadata.ingress_port == 5" (node_11) is false
+[12:27:08.640] [bmv2] [T] [thread 6507] [57.0] [cxt 0] p4-detem-impl/detem.p4(214) Condition "standard_metadata.ingress_port == 6" (node_13) is false
+[12:27:08.640] [bmv2] [T] [thread 6507] [57.0] [cxt 0] p4-detem-impl/detem.p4(217) Condition "standard_metadata.ingress_port == 7" (node_15) is false
+[12:27:08.640] [bmv2] [T] [thread 6507] [57.0] [cxt 0] p4-detem-impl/detem.p4(220) Condition "standard_metadata.ingress_port == 8" (node_17) is true
+[12:27:08.641] [bmv2] [T] [thread 6507] [57.0] [cxt 0] Applying table 'MyIngress.p3_ingress_port_mapping'
+[12:27:08.641] [bmv2] [D] [thread 6507] [57.0] [cxt 0] Looking up key:
+* hdr.ipv4.dstAddr    : effffffa
+
+[12:27:08.641] [bmv2] [D] [thread 6507] [57.0] [cxt 0] Table 'MyIngress.p3_ingress_port_mapping': miss
+[12:27:08.641] [bmv2] [D] [thread 6507] [57.0] [cxt 0] Action entry is MyIngress.drop - 
+[12:27:08.641] [bmv2] [T] [thread 6507] [57.0] [cxt 0] Action MyIngress.drop
+[12:27:08.641] [bmv2] [T] [thread 6507] [57.0] [cxt 0] p4-detem-impl/detem.p4(129) Primitive mark_to_drop(standard_metadata)
+[12:27:08.641] [bmv2] [D] [thread 6507] [57.0] [cxt 0] Pipeline 'ingress': end
+[12:27:08.641] [bmv2] [D] [thread 6507] [57.0] [cxt 0] Egress port is 511
+[12:27:08.641] [bmv2] [D] [thread 6507] [57.0] [cxt 0] Dropping packet at the end of ingress
